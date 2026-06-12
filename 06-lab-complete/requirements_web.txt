@@ -1,0 +1,10 @@
+flask
+langchain-core
+langchain-community
+langchain-text-splitters
+langchain-google-genai
+faiss-cpu
+unstructured
+pypdf
+numpy
+python-dotenv

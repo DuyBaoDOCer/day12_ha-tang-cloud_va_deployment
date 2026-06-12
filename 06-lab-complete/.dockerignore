@@ -1,4 +1,5 @@
 __pycache__/
+**/__pycache__/
 *.pyc
 *.pyo
 .env
@@ -8,9 +9,10 @@ venv/
 .venv/
 .git/
 *.md
-tests/
 .DS_Store
-# ChromaDB index (rebuilt at startup if missing)
+# ChromaDB index từ project cũ (không dùng nữa)
 .chroma/
-# Trace artifacts (runtime-generated)
+# Artifacts runtime
 artifacts/
+# Requirements cũ (đã thay bằng requirements.txt)
+requirements_web.txt

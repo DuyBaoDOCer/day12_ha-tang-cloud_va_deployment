@@ -1,15 +1,11 @@
-# Web framework
-fastapi>=0.115.0
-uvicorn[standard]>=0.30.0
-pydantic>=2.9.0
-python-dotenv>=1.1.1
-
-# Multi-Agent / LangGraph
-chromadb>=1.0.12
-langchain>=0.3.27
-langchain-core>=0.3.72
-langchain-google-genai>=2.1.8
-langchain-ollama>=0.3.6
-langchain-openai>=0.3.28
-langgraph>=0.6.3
-sentence-transformers>=3.0.1
+flask>=3.0.0
+gunicorn>=22.0.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+langchain-text-splitters>=0.3.0
+langchain-google-genai>=2.0.0
+faiss-cpu>=1.8.0
+unstructured[pdf]>=0.15.0
+pypdf>=5.0.0
+numpy>=1.26.0
+python-dotenv>=1.1.0
