@@ -19,6 +19,8 @@ import time
 import signal
 import logging
 import json
+import redis
+import re
 from datetime import datetime, timezone
 from collections import defaultdict, deque
 from contextlib import asynccontextmanager
@@ -43,6 +45,22 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Initialize Redis client (stateless-compatible)
+try:
+    if settings.redis_url:
+        r_client = redis.from_url(settings.redis_url, decode_responses=True)
+        r_client.ping()
+        logger.info("Connected to Redis successfully!")
+    else:
+        logger.warning("REDIS_URL not set — using in-memory store")
+        r_client = None
+except Exception as e:
+    logger.error(f"Could not connect to Redis: {e} — using in-memory fallback")
+    r_client = None
+
+_name_store = {}
+_memory_history = {}
+
 START_TIME = time.time()
 _is_ready = False
 _request_count = 0
@@ -54,6 +72,27 @@ _error_count = 0
 _rate_windows: dict[str, deque] = defaultdict(deque)
 
 def check_rate_limit(key: str):
+    if r_client:
+        # Redis-based rate limiter (shared across workers/replicas)
+        current_minute = int(time.time() / 60)
+        redis_key = f"rate:{key}:{current_minute}"
+        try:
+            pipe = r_client.pipeline()
+            pipe.incr(redis_key)
+            pipe.expire(redis_key, 60)
+            count, _ = pipe.execute()
+            
+            if count > settings.rate_limit_per_minute:
+                raise HTTPException(
+                    status_code=429,
+                    detail=f"Rate limit exceeded: {settings.rate_limit_per_minute} req/min",
+                    headers={"Retry-After": "60"},
+                )
+            return
+        except redis.RedisError as e:
+            logger.error(f"Redis error in rate limiter: {e} — falling back to in-memory")
+
+    # In-memory rate limiter fallback
     now = time.time()
     window = _rate_windows[key]
     while window and window[0] < now - 60:
@@ -164,6 +203,7 @@ async def request_middleware(request: Request, call_next):
 # Models
 # ─────────────────────────────────────────────────────────
 class AskRequest(BaseModel):
+    user_id: str | None = Field(None, description="User ID for session/conversation tracking")
     question: str = Field(..., min_length=1, max_length=2000,
                           description="Your question for the agent")
 
@@ -202,21 +242,85 @@ async def ask_agent(
 
     **Authentication:** Include header `X-API-Key: <your-key>`
     """
-    # Rate limit per API key
-    check_rate_limit(_key[:8])  # use first 8 chars as key bucket
+    # Identify unique user ID for session tracking (body user_id, fallback to API key prefix)
+    uid = body.user_id or _key[:8]
 
-    # Budget check
+    # Rate limit per user / API key
+    check_rate_limit(uid)
+
+    # Budget check (simulated token usage)
     input_tokens = len(body.question.split()) * 2
     check_and_record_cost(input_tokens, 0)
 
     logger.info(json.dumps({
         "event": "agent_call",
+        "user_id": uid,
         "q_len": len(body.question),
         "client": str(request.client.host) if request.client else "unknown",
     }))
 
-    answer = llm_ask(body.question)
+    # Multi-turn logic: check if the user is declaring their name
+    name_match = re.search(r"my name is (\w+)", body.question, re.IGNORECASE)
+    if name_match:
+        name = name_match.group(1)
+        if r_client:
+            try:
+                r_client.setex(f"name:{uid}", 3600, name)
+            except Exception as e:
+                logger.error(f"Failed to save name to Redis: {e}")
+        else:
+            _name_store[uid] = name
 
+    # Load/prepare conversation history
+    history_key = f"history:{uid}"
+    if r_client:
+        try:
+            history_raw = r_client.lrange(history_key, 0, -1)
+            history = [json.loads(m) for m in history_raw]
+        except Exception as e:
+            logger.error(f"Failed to load history from Redis: {e}")
+            history = []
+    else:
+        history = _memory_history.get(uid, [])
+
+    # Check if the question is asking for the user's name
+    question_lower = body.question.lower()
+    if "what is my name" in question_lower:
+        name = None
+        if r_client:
+            try:
+                name = r_client.get(f"name:{uid}")
+            except Exception as e:
+                logger.error(f"Failed to get name from Redis: {e}")
+        else:
+            name = _name_store.get(uid)
+
+        if name:
+            answer = f"Your name is {name}."
+        else:
+            answer = "I'm sorry, I don't know your name yet. Please tell me your name first!"
+    else:
+        # Standard query to the Mock LLM
+        answer = llm_ask(body.question)
+
+    # Record conversation history
+    current_msg = {"role": "user", "content": body.question, "ts": time.time()}
+    assistant_msg = {"role": "assistant", "content": answer, "ts": time.time()}
+    history.append(current_msg)
+    history.append(assistant_msg)
+
+    if r_client:
+        try:
+            pipe = r_client.pipeline()
+            pipe.rpush(history_key, json.dumps(current_msg), json.dumps(assistant_msg))
+            pipe.expire(history_key, 3600)
+            pipe.execute()
+        except Exception as e:
+            logger.error(f"Failed to save history to Redis: {e}")
+    else:
+        _memory_history[uid] = history
+
+    # Output tokens billing
     output_tokens = len(answer.split()) * 2
     check_and_record_cost(0, output_tokens)
 
@@ -249,6 +353,12 @@ def ready():
     """Readiness probe. Load balancer stops routing here if not ready."""
     if not _is_ready:
         raise HTTPException(503, "Not ready")
+    if r_client:
+        try:
+            r_client.ping()
+        except Exception as e:
+            logger.error(f"Readiness check failed — Redis offline: {e}")
+            raise HTTPException(503, "Redis offline")
     return {"ready": True}
 
 
