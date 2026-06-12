@@ -1,0 +1,170 @@
+[
+  {
+    "node": "supervisor",
+    "timestamp": "2026-06-09T09:09:48.573239+00:00",
+    "input": "Chính sách hoàn trả hàng ra sao?",
+    "output": {
+      "status": "ok",
+      "needs_policy": true,
+      "needs_data": false,
+      "clarification_question": null
+    }
+  },
+  {
+    "node": "worker_1_policy",
+    "timestamp": "2026-06-09T09:10:08.822879+00:00",
+    "tool_calls": [
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "chính sách hoàn trả hàng"
+        },
+        "output": [
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.9. Hoàn tiền",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.9. Hoàn tiền\nTiền hoàn có thể được trả về:\n\n- ví nội bộ của nền tảng\n- tài khoản ngân hàng\n- thẻ thanh toán\n- phương thức thanh toán gốc nếu hạ tầng thanh toán hỗ trợ\n\nThời gian nhận tiền thực tế có thể phụ thuộc:\n\n- cổng thanh toán\n- ngân hàng phát hành\n- trạng thái đối soát\n- việc xác minh chứng từ của bộ phận vận hành",
+            "distance": 0.513971209526062
+          },
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.10. Quan hệ giữa trạng thái đơn hàng và quyền trả hàng",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.10. Quan hệ giữa trạng thái đơn hàng và quyền trả hàng\nTrong dữ liệu lab, sinh viên nên hiểu rõ:\n\n- đơn chưa giao thành công thường **chưa thể** bắt đầu quy trình trả hàng thông thường\n- đơn đang `in_transit` có thể được hỗ trợ hủy hoặc từ chối nhận trong một số trường hợp, nhưng không xem là \"đã trả hàng\"\n- đơn `delivered` mới là trạng thái thường dùng để tính cửa sổ đổi trả\n- đơn `completed` vẫn có thể còn trong hạn trả hàng nếu chưa vượt `eligible_for_return_until`\n\nĐiều này rất quan trọng cho các câu hỏi như:\n\n- \"Đơn hàng 1971 có được hoàn trả không?\"",
+            "distance": 0.5934202671051025
+          },
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.5. Trình tự xử lý yêu cầu",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.5. Trình tự xử lý yêu cầu\nQuy trình xử lý mẫu trong lab:\n\n1. Khách tạo yêu cầu trên ứng dụng\n2. Hệ thống ghi nhận lý do và bằng chứng\n3. Nhà bán hoặc bộ phận vận hành phản hồi vòng đầu\n4. Nếu cần trả hàng, khách chọn hình thức gửi trả\n5. Hệ thống xác nhận trạng thái hàng trả về\n6. Hoàn tiền được thực hiện sau khi yêu cầu được chấp thuận",
+            "distance": 0.5951467156410217
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.6. Kiểm hàng khi nhận",
+            "content": "## 4. Chính sách giao hàng\n### 4.6. Kiểm hàng khi nhận\nKhách hàng được khuyến nghị:\n\n- kiểm tra tình trạng thùng hàng khi nhận\n- quay video mở kiện đối với sản phẩm giá trị cao\n- báo ngay trên ứng dụng nếu phát hiện vỡ, móp, thiếu phụ kiện hoặc sai sản phẩm\n\nTrong phạm vi nghiệp vụ mô phỏng cho lab:\n\n- khách được phép kiểm tra ngoại quan gói hàng trước khi xác nhận nhận\n- việc dùng thử sâu, lắp đặt, kích hoạt hoặc sử dụng lâu dài không thuộc phạm vi \"kiểm hàng tại chỗ\"",
+            "distance": 0.6048029661178589
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "đổi trả hàng thời gian điều kiện"
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.3. Thời gian giao hàng dự kiến",
+            "content": "## 4. Chính sách giao hàng\n### 4.3. Thời gian giao hàng dự kiến\nThời gian giao hàng dự kiến phụ thuộc vào khu vực nhận hàng:\n\n- nội thành cùng tỉnh/thành phố lớn: 1 đến 2 ngày\n- liên tỉnh khu vực lân cận: 2 đến 4 ngày\n- tuyến huyện, xã hoặc khu vực xa: 3 đến 7 ngày\n- sản phẩm cồng kềnh hoặc hàng cần kiểm tra đặc biệt: cộng thêm 1 đến 3 ngày\n\nĐây là thời gian dự kiến. Hệ thống có thể điều chỉnh `estimated_delivery` nếu phát sinh:\n\n- thời tiết xấu\n- ùn tắc giao thông\n- người nhận không liên lạc được\n- sai hoặc thiếu thông tin địa chỉ\n- hàng phải trung chuyển nhiều chặng",
+            "distance": 0.6048802733421326
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.5. Tách đơn và giao nhiều kiện",
+            "content": "## 4. Chính sách giao hàng\n### 4.5. Tách đơn và giao nhiều kiện\nMột đơn hàng có thể được tách thành nhiều kiện trong các trường hợp:\n\n- đơn có sản phẩm từ nhiều nhà bán khác nhau\n- các mặt hàng nằm ở nhiều kho\n- một phần hàng sẵn kho, phần còn lại cần xử lý riêng\n\nKhi đó:\n\n- mỗi kiện có thể có mã vận đơn riêng\n- thời gian giao của từng kiện có thể khác nhau\n- việc hoàn trả cũng có thể phát sinh theo từng kiện hoặc từng sản phẩm",
+            "distance": 0.6134231686592102
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.2. Thời gian xử lý đơn",
+            "content": "## 4. Chính sách giao hàng\n### 4.2. Thời gian xử lý đơn\nSau khi khách đặt hàng thành công, nhà bán hoặc kho vận hành sẽ cần một khoảng thời gian để:\n\n- xác nhận tồn kho\n- đóng gói\n- in vận đơn\n- bàn giao cho đơn vị vận chuyển\n\nThời gian xử lý thông thường:\n\n- đơn tiêu chuẩn: từ 4 đến 24 giờ làm việc\n- đơn giao nhanh: từ 1 đến 6 giờ làm việc nếu đặt trong khung giờ hỗ trợ\n- đơn có nhiều kiện hoặc nhiều shop: có thể tách thành nhiều gói và xử lý độc lập",
+            "distance": 0.6496208906173706
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.1. Phương thức giao hàng",
+            "content": "## 4. Chính sách giao hàng\n### 4.1. Phương thức giao hàng\nVinShop Demo hỗ trợ các hình thức giao hàng sau:\n\n- `standard`: giao hàng tiêu chuẩn toàn quốc\n- `fast`: giao nhanh nội thành hoặc liên tỉnh ngắn\n- `express`: giao ưu tiên cho sản phẩm đủ điều kiện\n- `scheduled`: giao theo khung giờ hẹn trước tại một số khu vực\n\nKhông phải mọi sản phẩm đều hỗ trợ tất cả phương thức giao hàng. Hệ thống sẽ chỉ hiển thị các phương thức phù hợp dựa trên:\n\n- địa chỉ nhận hàng\n- kích thước và khối lượng gói hàng\n- điều kiện đóng gói của nhà bán\n- đặc thù sản phẩm như dễ vỡ, hàng giá trị cao, hàng cồng kềnh hoặc hàng cần bảo quản đặc biệt",
+            "distance": 0.7069230079650879
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "điều kiện đổi trả hàng"
+        },
+        "output": [
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.10. Quan hệ giữa trạng thái đơn hàng và quyền trả hàng",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.10. Quan hệ giữa trạng thái đơn hàng và quyền trả hàng\nTrong dữ liệu lab, sinh viên nên hiểu rõ:\n\n- đơn chưa giao thành công thường **chưa thể** bắt đầu quy trình trả hàng thông thường\n- đơn đang `in_transit` có thể được hỗ trợ hủy hoặc từ chối nhận trong một số trường hợp, nhưng không xem là \"đã trả hàng\"\n- đơn `delivered` mới là trạng thái thường dùng để tính cửa sổ đổi trả\n- đơn `completed` vẫn có thể còn trong hạn trả hàng nếu chưa vượt `eligible_for_return_until`\n\nĐiều này rất quan trọng cho các câu hỏi như:\n\n- \"Đơn hàng 1971 có được hoàn trả không?\"",
+            "distance": 0.6607282161712646
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.5. Tách đơn và giao nhiều kiện",
+            "content": "## 4. Chính sách giao hàng\n### 4.5. Tách đơn và giao nhiều kiện\nMột đơn hàng có thể được tách thành nhiều kiện trong các trường hợp:\n\n- đơn có sản phẩm từ nhiều nhà bán khác nhau\n- các mặt hàng nằm ở nhiều kho\n- một phần hàng sẵn kho, phần còn lại cần xử lý riêng\n\nKhi đó:\n\n- mỗi kiện có thể có mã vận đơn riêng\n- thời gian giao của từng kiện có thể khác nhau\n- việc hoàn trả cũng có thể phát sinh theo từng kiện hoặc từng sản phẩm",
+            "distance": 0.6646774411201477
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.3. Thời gian giao hàng dự kiến",
+            "content": "## 4. Chính sách giao hàng\n### 4.3. Thời gian giao hàng dự kiến\nThời gian giao hàng dự kiến phụ thuộc vào khu vực nhận hàng:\n\n- nội thành cùng tỉnh/thành phố lớn: 1 đến 2 ngày\n- liên tỉnh khu vực lân cận: 2 đến 4 ngày\n- tuyến huyện, xã hoặc khu vực xa: 3 đến 7 ngày\n- sản phẩm cồng kềnh hoặc hàng cần kiểm tra đặc biệt: cộng thêm 1 đến 3 ngày\n\nĐây là thời gian dự kiến. Hệ thống có thể điều chỉnh `estimated_delivery` nếu phát sinh:\n\n- thời tiết xấu\n- ùn tắc giao thông\n- người nhận không liên lạc được\n- sai hoặc thiếu thông tin địa chỉ\n- hàng phải trung chuyển nhiều chặng",
+            "distance": 0.7314586639404297
+          },
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.1. Điều kiện chung để gửi yêu cầu",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.1. Điều kiện chung để gửi yêu cầu\nKhách hàng có thể gửi yêu cầu trả hàng / hoàn tiền khi có căn cứ hợp lý và còn trong thời hạn hỗ trợ của hệ thống.\n\nTrong bộ mock policy này, thời hạn mặc định là:\n\n- tối đa **15 ngày kể từ khi đơn cập nhật giao hàng thành công** đối với đa số ngành hàng thông thường\n- tối đa **3 ngày** đối với hàng tiêu dùng nhanh, mỹ phẩm dùng thử, thực phẩm hoặc sản phẩm có rủi ro vệ sinh cao\n- tối đa **24 giờ** đối với hàng tươi sống hoặc hàng có điều kiện bảo quản đặc biệt\n\nThời hạn cụ thể có thể được ghi đè ở dữ liệu sản phẩm hoặc dữ liệu đơn hàng bằng các trường như:\n\n- `return_window_days`\n- `returnable`\n- `eligible_for_return_until`",
+            "distance": 0.7344499826431274
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "chính sách đổi trả hoàn tiền vin shop"
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.2. Thời gian xử lý đơn",
+            "content": "## 4. Chính sách giao hàng\n### 4.2. Thời gian xử lý đơn\nSau khi khách đặt hàng thành công, nhà bán hoặc kho vận hành sẽ cần một khoảng thời gian để:\n\n- xác nhận tồn kho\n- đóng gói\n- in vận đơn\n- bàn giao cho đơn vị vận chuyển\n\nThời gian xử lý thông thường:\n\n- đơn tiêu chuẩn: từ 4 đến 24 giờ làm việc\n- đơn giao nhanh: từ 1 đến 6 giờ làm việc nếu đặt trong khung giờ hỗ trợ\n- đơn có nhiều kiện hoặc nhiều shop: có thể tách thành nhiều gói và xử lý độc lập",
+            "distance": 0.6124824285507202
+          },
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.3. Quy tắc cộng dồn voucher",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.3. Quy tắc cộng dồn voucher\nTrong mock policy này, một đơn hàng có thể dùng tối đa:\n\n- 01 voucher nền tảng\n- 01 voucher shop\n- 01 voucher vận chuyển\n\nKhông phải mọi tổ hợp đều hợp lệ. Hệ thống sẽ tự tính theo quy tắc:\n\n1. áp dụng ưu đãi của shop trước\n2. áp dụng voucher nền tảng tiếp theo\n3. cuối cùng mới tính ưu đãi vận chuyển",
+            "distance": 0.6824815273284912
+          },
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.5. Trình tự xử lý yêu cầu",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.5. Trình tự xử lý yêu cầu\nQuy trình xử lý mẫu trong lab:\n\n1. Khách tạo yêu cầu trên ứng dụng\n2. Hệ thống ghi nhận lý do và bằng chứng\n3. Nhà bán hoặc bộ phận vận hành phản hồi vòng đầu\n4. Nếu cần trả hàng, khách chọn hình thức gửi trả\n5. Hệ thống xác nhận trạng thái hàng trả về\n6. Hoàn tiền được thực hiện sau khi yêu cầu được chấp thuận",
+            "distance": 0.6830209493637085
+          },
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.9. Hoàn tiền",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.9. Hoàn tiền\nTiền hoàn có thể được trả về:\n\n- ví nội bộ của nền tảng\n- tài khoản ngân hàng\n- thẻ thanh toán\n- phương thức thanh toán gốc nếu hạ tầng thanh toán hỗ trợ\n\nThời gian nhận tiền thực tế có thể phụ thuộc:\n\n- cổng thanh toán\n- ngân hàng phát hành\n- trạng thái đối soát\n- việc xác minh chứng từ của bộ phận vận hành",
+            "distance": 0.6974241137504578
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "thời hạn trả hàng 15 ngày 3 ngày 24 giờ"
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.6. Kiểm hàng khi nhận",
+            "content": "## 4. Chính sách giao hàng\n### 4.6. Kiểm hàng khi nhận\nKhách hàng được khuyến nghị:\n\n- kiểm tra tình trạng thùng hàng khi nhận\n- quay video mở kiện đối với sản phẩm giá trị cao\n- báo ngay trên ứng dụng nếu phát hiện vỡ, móp, thiếu phụ kiện hoặc sai sản phẩm\n\nTrong phạm vi nghiệp vụ mô phỏng cho lab:\n\n- khách được phép kiểm tra ngoại quan gói hàng trước khi xác nhận nhận\n- việc dùng thử sâu, lắp đặt, kích hoạt hoặc sử dụng lâu dài không thuộc phạm vi \"kiểm hàng tại chỗ\"",
+            "distance": 0.7591831684112549
+          },
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.1. Điều kiện chung để gửi yêu cầu",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.1. Điều kiện chung để gửi yêu cầu\nKhách hàng có thể gửi yêu cầu trả hàng / hoàn tiền khi có căn cứ hợp lý và còn trong thời hạn hỗ trợ của hệ thống.\n\nTrong bộ mock policy này, thời hạn mặc định là:\n\n- tối đa **15 ngày kể từ khi đơn cập nhật giao hàng thành công** đối với đa số ngành hàng thông thường\n- tối đa **3 ngày** đối với hàng tiêu dùng nhanh, mỹ phẩm dùng thử, thực phẩm hoặc sản phẩm có rủi ro vệ sinh cao\n- tối đa **24 giờ** đối với hàng tươi sống hoặc hàng có điều kiện bảo quản đặc biệt\n\nThời hạn cụ thể có thể được ghi đè ở dữ liệu sản phẩm hoặc dữ liệu đơn hàng bằng các trường như:\n\n- `return_window_days`\n- `returnable`\n- `eligible_for_return_until`",
+            "distance": 0.764424741268158
+          },
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.9. Hoàn tiền",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.9. Hoàn tiền\nTiền hoàn có thể được trả về:\n\n- ví nội bộ của nền tảng\n- tài khoản ngân hàng\n- thẻ thanh toán\n- phương thức thanh toán gốc nếu hạ tầng thanh toán hỗ trợ\n\nThời gian nhận tiền thực tế có thể phụ thuộc:\n\n- cổng thanh toán\n- ngân hàng phát hành\n- trạng thái đối soát\n- việc xác minh chứng từ của bộ phận vận hành",
+            "distance": 0.7820512652397156
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.3. Yêu cầu trả hàng / hoàn tiền",
+            "content": "## 3. Thuật ngữ\n### 3.3. Yêu cầu trả hàng / hoàn tiền\nLà yêu cầu do khách hàng khởi tạo sau khi đơn hàng đã phát sinh vấn đề như:\n\n- giao sai sản phẩm\n- thiếu hàng\n- hàng lỗi, vỡ, hư hỏng\n- hàng không đúng mô tả\n- nghi ngờ hàng giả hoặc sai thương hiệu\n- đơn đã giao nhưng khách có nhu cầu đổi ý trong phạm vi cho phép",
+            "distance": 0.7835023999214172
+          }
+        ]
+      }
+    ],
+    "output": {
+      "status": "ok",
+      "summary": "",
+      "facts": [],
+      "citations": []
+    }
+  },
+  {
+    "node": "worker_3_response",
+    "timestamp": "2026-06-09T09:10:23.607418+00:00",
+    "output": "Status: not_found\nMessage: Xin lỗi, hiện tại tôi không tìm thấy thông tin về chính sách hoàn trả hàng trong cơ sở dữ liệu. Bạn vui lòng cung cấp thêm chi tiết như mã đơn hàng hoặc loại sản phẩm để tôi hỗ trợ tốt hơn nhé!"
+  }
+]

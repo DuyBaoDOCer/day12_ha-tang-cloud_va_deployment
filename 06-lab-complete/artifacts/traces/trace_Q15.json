@@ -1,0 +1,18 @@
+[
+  {
+    "node": "supervisor",
+    "timestamp": "2026-06-09T09:17:14.876883+00:00",
+    "input": "Voucher của tôi còn dùng được không?",
+    "output": {
+      "status": "clarification_needed",
+      "needs_policy": false,
+      "needs_data": false,
+      "clarification_question": "Vui lòng cung cấp mã khách hàng của bạn (ví dụ: C001) để tôi có thể kiểm tra thông tin voucher."
+    }
+  },
+  {
+    "node": "worker_3_response",
+    "timestamp": "2026-06-09T09:17:19.760601+00:00",
+    "output": "Status: clarification_needed\nQuestion: Vui lòng cung cấp mã khách hàng của bạn (ví dụ: C001) để tôi có thể kiểm tra thông tin voucher."
+  }
+]

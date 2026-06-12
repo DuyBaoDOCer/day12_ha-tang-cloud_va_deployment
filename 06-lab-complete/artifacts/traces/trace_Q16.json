@@ -1,0 +1,18 @@
+[
+  {
+    "node": "supervisor",
+    "timestamp": "2026-06-09T09:17:25.654546+00:00",
+    "input": "Đơn hàng của tôi có được hoàn trả không?",
+    "output": {
+      "status": "clarification_needed",
+      "needs_policy": false,
+      "needs_data": false,
+      "clarification_question": "Vui lòng cung cấp mã đơn hàng của bạn (ví dụ: 1971) để tôi có thể kiểm tra khả năng hoàn trả."
+    }
+  },
+  {
+    "node": "worker_3_response",
+    "timestamp": "2026-06-09T09:17:29.760521+00:00",
+    "output": "Status: clarification_needed\nQuestion: Vui lòng cung cấp mã đơn hàng của bạn (ví dụ: 1971) để tôi có thể kiểm tra khả năng hoàn trả."
+  }
+]

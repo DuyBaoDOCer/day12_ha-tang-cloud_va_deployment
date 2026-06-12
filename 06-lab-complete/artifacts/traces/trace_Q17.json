@@ -1,0 +1,45 @@
+[
+  {
+    "node": "supervisor",
+    "timestamp": "2026-06-09T09:17:32.773162+00:00",
+    "input": "Kiểm tra đơn hàng 9999 giúp tôi",
+    "output": {
+      "status": "ok",
+      "needs_policy": false,
+      "needs_data": true,
+      "clarification_question": null
+    }
+  },
+  {
+    "node": "worker_2_data",
+    "timestamp": "2026-06-09T09:17:37.487751+00:00",
+    "tool_calls": [
+      {
+        "tool": "get_order_detail_by_order_id",
+        "args": {
+          "order_id": "9999"
+        },
+        "output": {
+          "status": "not_found",
+          "order_id": "9999"
+        }
+      }
+    ],
+    "output": {
+      "status": "not_found",
+      "summary": "Đơn hàng 9999 không tồn tại trong hệ thống.",
+      "facts": [
+        "Không tìm thấy thông tin đơn hàng 9999."
+      ],
+      "missing_fields": [],
+      "not_found_entities": [
+        "đơn hàng 9999"
+      ]
+    }
+  },
+  {
+    "node": "worker_3_response",
+    "timestamp": "2026-06-09T09:17:42.591851+00:00",
+    "output": "Status: not_found\nMessage: Rất tiếc, đơn hàng 9999 không tồn tại trong hệ thống của chúng tôi. Bạn vui lòng kiểm tra lại mã đơn hàng nhé!"
+  }
+]

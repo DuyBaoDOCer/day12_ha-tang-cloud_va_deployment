@@ -1,0 +1,53 @@
+[
+  {
+    "node": "supervisor",
+    "timestamp": "2026-06-09T09:17:46.313614+00:00",
+    "input": "Cho tôi xem voucher của khách hàng C999",
+    "output": {
+      "status": "ok",
+      "needs_policy": false,
+      "needs_data": true,
+      "clarification_question": null
+    }
+  },
+  {
+    "node": "worker_2_data",
+    "timestamp": "2026-06-09T09:17:52.031634+00:00",
+    "tool_calls": [
+      {
+        "tool": "get_customer_by_id",
+        "args": {
+          "customer_id": "C999"
+        },
+        "output": {
+          "status": "not_found",
+          "customer_id": "C999"
+        }
+      },
+      {
+        "tool": "get_vouchers_by_customer_id",
+        "args": {
+          "customer_id": "C999"
+        },
+        "output": {
+          "status": "not_found",
+          "customer_id": "C999"
+        }
+      }
+    ],
+    "output": {
+      "status": "not_found",
+      "summary": "Không tìm thấy khách hàng C999 trong hệ thống.",
+      "facts": [],
+      "missing_fields": [],
+      "not_found_entities": [
+        "Khách hàng C999"
+      ]
+    }
+  },
+  {
+    "node": "worker_3_response",
+    "timestamp": "2026-06-09T09:17:56.152638+00:00",
+    "output": "Status: not_found\nMessage: Xin lỗi, chúng tôi không tìm thấy thông tin của khách hàng C999 trong hệ thống. Vui lòng kiểm tra lại mã khách hàng hoặc liên hệ với bộ phận hỗ trợ để được giúp đỡ thêm."
+  }
+]

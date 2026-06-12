@@ -1,5 +1,6 @@
 __pycache__/
 *.pyc
+*.pyo
 .env
 .env.*
 !.env.example
@@ -9,3 +10,7 @@ venv/
 *.md
 tests/
 .DS_Store
+# ChromaDB index (rebuilt at startup if missing)
+.chroma/
+# Trace artifacts (runtime-generated)
+artifacts/

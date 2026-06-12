@@ -1,0 +1,92 @@
+[
+  {
+    "node": "supervisor",
+    "timestamp": "2026-06-09T09:12:37.222062+00:00",
+    "input": "Đơn hàng 1971 bao giờ được giao?",
+    "output": {
+      "status": "ok",
+      "needs_policy": false,
+      "needs_data": true,
+      "clarification_question": null
+    }
+  },
+  {
+    "node": "worker_2_data",
+    "timestamp": "2026-06-09T09:12:43.252504+00:00",
+    "tool_calls": [
+      {
+        "tool": "get_order_detail_by_order_id",
+        "args": {
+          "order_id": "1971"
+        },
+        "output": {
+          "status": "ok",
+          "order": {
+            "order_id": "1971",
+            "customer_id": "C001",
+            "customer_name": "Nguyen Thu Anh",
+            "order_status": "in_transit",
+            "payment_method": "e_wallet",
+            "payment_status": "paid",
+            "shipping_method": "fast",
+            "carrier": "SPX Express",
+            "tracking_number": "VN1971888123",
+            "warehouse_city": "Ho Chi Minh",
+            "destination_city": "Ho Chi Minh",
+            "destination_district": "Binh Thanh",
+            "created_at": "2026-06-05T10:15",
+            "packed_at": "2026-06-05T13:40",
+            "handed_over_at": "2026-06-05T17:10",
+            "estimated_delivery": "2026-06-09",
+            "delivered_at": null,
+            "completed_at": null,
+            "eligible_for_return_until": null,
+            "can_return_now": false,
+            "returnable_items_count": 1,
+            "subtotal": 1180000,
+            "shipping_fee": 28000,
+            "discount_amount": 90000,
+            "final_total": 1118000,
+            "voucher_code": "PLAT-FS-0626-C001",
+            "is_split_order": false,
+            "parcel_count": 1,
+            "current_location": "Destination Delivery Station",
+            "latest_status_note": "Đơn hàng đang trên đường giao, dự kiến giao trong ngày 2026-06-09.",
+            "items": [
+              {
+                "product_id": "P197101",
+                "seller_sku": "SKU-1971-01",
+                "product_name": "Giày sneaker StreetGo",
+                "category": "fashion",
+                "quantity": 1,
+                "unit_price": 1180000,
+                "returnable": true,
+                "return_window_days": 15,
+                "fragile": false,
+                "shop_name": "StyleLab Fashion"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "output": {
+      "status": "ok",
+      "summary": "Đơn hàng 1971 đang trong quá trình vận chuyển, dự kiến giao vào ngày 2026-06-09.",
+      "facts": [
+        "Đơn hàng 1971 thuộc về khách hàng Nguyen Thu Anh (C001).",
+        "Trạng thái đơn hàng: in_transit (đang vận chuyển).",
+        "Ngày giao dự kiến (estimated_delivery): 2026-06-09.",
+        "Phương thức vận chuyển: fast, đơn vị vận chuyển: SPX Express.",
+        "Đơn hàng đang ở Destination Delivery Station, dự kiến giao trong ngày 2026-06-09."
+      ],
+      "missing_fields": [],
+      "not_found_entities": []
+    }
+  },
+  {
+    "node": "worker_3_response",
+    "timestamp": "2026-06-09T09:12:55.496754+00:00",
+    "output": "Answer: Đơn hàng 1971 của bạn (Nguyễn Thu Anh) hiện đang trong quá trình vận chuyển. Dự kiến sẽ được giao vào ngày **2026-06-09**. Đơn hàng đã đến trạm giao hàng cuối (Destination Delivery Station) và sẽ được chuyển phát trong ngày hôm đó qua đơn vị SPX Express (phương thức vận chuyển nhanh). Bạn vui lòng để ý điện thoại để nhận hàng nhé!\n\nEvidence:\n- Policy: Không áp dụng (câu hỏi không yêu cầu chính sách).\n- Order data: Đơn hàng 1971 (khách hàng C001 – Nguyễn Thu Anh), trạng thái in_transit, ngày giao dự kiến 2026-06-09, phương thức fast, đơn vị vận chuyển SPX Express, vị trí hiện tại: Destination Delivery Station."
+  }
+]

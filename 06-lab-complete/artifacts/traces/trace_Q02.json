@@ -1,0 +1,170 @@
+[
+  {
+    "node": "supervisor",
+    "timestamp": "2026-06-09T09:10:26.958917+00:00",
+    "input": "Giao hàng tiêu chuẩn thường mất bao lâu?",
+    "output": {
+      "status": "ok",
+      "needs_policy": true,
+      "needs_data": false,
+      "clarification_question": null
+    }
+  },
+  {
+    "node": "worker_1_policy",
+    "timestamp": "2026-06-09T09:10:40.587235+00:00",
+    "tool_calls": [
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "giao hàng tiêu chuẩn thời gian"
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên",
+            "content": "## 4. Chính sách giao hàng\n### 4.4. Giao hàng nhanh và giao ưu tiên\nĐối với đơn đủ điều kiện giao nhanh hoặc giao ưu tiên:\n\n- khách cần đặt trong khung giờ hệ thống hỗ trợ\n- địa chỉ nhận phải nằm trong vùng phục vụ\n- sản phẩm không thuộc danh mục hạn chế vận chuyển\n\nCác đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu:\n\n- shop bàn giao hàng chậm\n- sản phẩm vượt ngưỡng kích thước hoặc khối lượng cho phép\n- phát sinh rủi ro vận hành từ đơn vị vận chuyển",
+            "distance": 0.684881865978241
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.1. Phương thức giao hàng",
+            "content": "## 4. Chính sách giao hàng\n### 4.1. Phương thức giao hàng\nVinShop Demo hỗ trợ các hình thức giao hàng sau:\n\n- `standard`: giao hàng tiêu chuẩn toàn quốc\n- `fast`: giao nhanh nội thành hoặc liên tỉnh ngắn\n- `express`: giao ưu tiên cho sản phẩm đủ điều kiện\n- `scheduled`: giao theo khung giờ hẹn trước tại một số khu vực\n\nKhông phải mọi sản phẩm đều hỗ trợ tất cả phương thức giao hàng. Hệ thống sẽ chỉ hiển thị các phương thức phù hợp dựa trên:\n\n- địa chỉ nhận hàng\n- kích thước và khối lượng gói hàng\n- điều kiện đóng gói của nhà bán\n- đặc thù sản phẩm như dễ vỡ, hàng giá trị cao, hàng cồng kềnh hoặc hàng cần bảo quản đặc biệt",
+            "distance": 0.7200160026550293
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.3. Yêu cầu trả hàng / hoàn tiền",
+            "content": "## 3. Thuật ngữ\n### 3.3. Yêu cầu trả hàng / hoàn tiền\nLà yêu cầu do khách hàng khởi tạo sau khi đơn hàng đã phát sinh vấn đề như:\n\n- giao sai sản phẩm\n- thiếu hàng\n- hàng lỗi, vỡ, hư hỏng\n- hàng không đúng mô tả\n- nghi ngờ hàng giả hoặc sai thương hiệu\n- đơn đã giao nhưng khách có nhu cầu đổi ý trong phạm vi cho phép",
+            "distance": 0.7461185455322266
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.2. Giao hàng thành công",
+            "content": "## 3. Thuật ngữ\n### 3.2. Giao hàng thành công\nĐơn được xem là giao hàng thành công khi hệ thống vận chuyển cập nhật trạng thái `delivered` hoặc tương đương, và hàng hóa đã tới đúng địa chỉ hoặc đúng người nhận được ủy quyền.",
+            "distance": 0.7754907011985779
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "giao hàng tiêu chuẩn mất bao lâu thời gian giao"
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên",
+            "content": "## 4. Chính sách giao hàng\n### 4.4. Giao hàng nhanh và giao ưu tiên\nĐối với đơn đủ điều kiện giao nhanh hoặc giao ưu tiên:\n\n- khách cần đặt trong khung giờ hệ thống hỗ trợ\n- địa chỉ nhận phải nằm trong vùng phục vụ\n- sản phẩm không thuộc danh mục hạn chế vận chuyển\n\nCác đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu:\n\n- shop bàn giao hàng chậm\n- sản phẩm vượt ngưỡng kích thước hoặc khối lượng cho phép\n- phát sinh rủi ro vận hành từ đơn vị vận chuyển",
+            "distance": 0.6080880165100098
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.1. Phương thức giao hàng",
+            "content": "## 4. Chính sách giao hàng\n### 4.1. Phương thức giao hàng\nVinShop Demo hỗ trợ các hình thức giao hàng sau:\n\n- `standard`: giao hàng tiêu chuẩn toàn quốc\n- `fast`: giao nhanh nội thành hoặc liên tỉnh ngắn\n- `express`: giao ưu tiên cho sản phẩm đủ điều kiện\n- `scheduled`: giao theo khung giờ hẹn trước tại một số khu vực\n\nKhông phải mọi sản phẩm đều hỗ trợ tất cả phương thức giao hàng. Hệ thống sẽ chỉ hiển thị các phương thức phù hợp dựa trên:\n\n- địa chỉ nhận hàng\n- kích thước và khối lượng gói hàng\n- điều kiện đóng gói của nhà bán\n- đặc thù sản phẩm như dễ vỡ, hàng giá trị cao, hàng cồng kềnh hoặc hàng cần bảo quản đặc biệt",
+            "distance": 0.654883086681366
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.6. Kiểm hàng khi nhận",
+            "content": "## 4. Chính sách giao hàng\n### 4.6. Kiểm hàng khi nhận\nKhách hàng được khuyến nghị:\n\n- kiểm tra tình trạng thùng hàng khi nhận\n- quay video mở kiện đối với sản phẩm giá trị cao\n- báo ngay trên ứng dụng nếu phát hiện vỡ, móp, thiếu phụ kiện hoặc sai sản phẩm\n\nTrong phạm vi nghiệp vụ mô phỏng cho lab:\n\n- khách được phép kiểm tra ngoại quan gói hàng trước khi xác nhận nhận\n- việc dùng thử sâu, lắp đặt, kích hoạt hoặc sử dụng lâu dài không thuộc phạm vi \"kiểm hàng tại chỗ\"",
+            "distance": 0.6562143564224243
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.3. Yêu cầu trả hàng / hoàn tiền",
+            "content": "## 3. Thuật ngữ\n### 3.3. Yêu cầu trả hàng / hoàn tiền\nLà yêu cầu do khách hàng khởi tạo sau khi đơn hàng đã phát sinh vấn đề như:\n\n- giao sai sản phẩm\n- thiếu hàng\n- hàng lỗi, vỡ, hư hỏng\n- hàng không đúng mô tả\n- nghi ngờ hàng giả hoặc sai thương hiệu\n- đơn đã giao nhưng khách có nhu cầu đổi ý trong phạm vi cho phép",
+            "distance": 0.6921622157096863
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "thời gian giao hàng tiêu chuẩn standard"
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên",
+            "content": "## 4. Chính sách giao hàng\n### 4.4. Giao hàng nhanh và giao ưu tiên\nĐối với đơn đủ điều kiện giao nhanh hoặc giao ưu tiên:\n\n- khách cần đặt trong khung giờ hệ thống hỗ trợ\n- địa chỉ nhận phải nằm trong vùng phục vụ\n- sản phẩm không thuộc danh mục hạn chế vận chuyển\n\nCác đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu:\n\n- shop bàn giao hàng chậm\n- sản phẩm vượt ngưỡng kích thước hoặc khối lượng cho phép\n- phát sinh rủi ro vận hành từ đơn vị vận chuyển",
+            "distance": 0.6940693259239197
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.1. Phương thức giao hàng",
+            "content": "## 4. Chính sách giao hàng\n### 4.1. Phương thức giao hàng\nVinShop Demo hỗ trợ các hình thức giao hàng sau:\n\n- `standard`: giao hàng tiêu chuẩn toàn quốc\n- `fast`: giao nhanh nội thành hoặc liên tỉnh ngắn\n- `express`: giao ưu tiên cho sản phẩm đủ điều kiện\n- `scheduled`: giao theo khung giờ hẹn trước tại một số khu vực\n\nKhông phải mọi sản phẩm đều hỗ trợ tất cả phương thức giao hàng. Hệ thống sẽ chỉ hiển thị các phương thức phù hợp dựa trên:\n\n- địa chỉ nhận hàng\n- kích thước và khối lượng gói hàng\n- điều kiện đóng gói của nhà bán\n- đặc thù sản phẩm như dễ vỡ, hàng giá trị cao, hàng cồng kềnh hoặc hàng cần bảo quản đặc biệt",
+            "distance": 0.7558018565177917
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.2. Giao hàng thành công",
+            "content": "## 3. Thuật ngữ\n### 3.2. Giao hàng thành công\nĐơn được xem là giao hàng thành công khi hệ thống vận chuyển cập nhật trạng thái `delivered` hoặc tương đương, và hàng hóa đã tới đúng địa chỉ hoặc đúng người nhận được ủy quyền.",
+            "distance": 0.7799605131149292
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.3. Thời gian giao hàng dự kiến",
+            "content": "## 4. Chính sách giao hàng\n### 4.3. Thời gian giao hàng dự kiến\nThời gian giao hàng dự kiến phụ thuộc vào khu vực nhận hàng:\n\n- nội thành cùng tỉnh/thành phố lớn: 1 đến 2 ngày\n- liên tỉnh khu vực lân cận: 2 đến 4 ngày\n- tuyến huyện, xã hoặc khu vực xa: 3 đến 7 ngày\n- sản phẩm cồng kềnh hoặc hàng cần kiểm tra đặc biệt: cộng thêm 1 đến 3 ngày\n\nĐây là thời gian dự kiến. Hệ thống có thể điều chỉnh `estimated_delivery` nếu phát sinh:\n\n- thời tiết xấu\n- ùn tắc giao thông\n- người nhận không liên lạc được\n- sai hoặc thiếu thông tin địa chỉ\n- hàng phải trung chuyển nhiều chặng",
+            "distance": 0.7847851514816284
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "giao hàng tiêu chuẩn thời gian dự kiến"
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên",
+            "content": "## 4. Chính sách giao hàng\n### 4.4. Giao hàng nhanh và giao ưu tiên\nĐối với đơn đủ điều kiện giao nhanh hoặc giao ưu tiên:\n\n- khách cần đặt trong khung giờ hệ thống hỗ trợ\n- địa chỉ nhận phải nằm trong vùng phục vụ\n- sản phẩm không thuộc danh mục hạn chế vận chuyển\n\nCác đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu:\n\n- shop bàn giao hàng chậm\n- sản phẩm vượt ngưỡng kích thước hoặc khối lượng cho phép\n- phát sinh rủi ro vận hành từ đơn vị vận chuyển",
+            "distance": 0.6391233205795288
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.3. Yêu cầu trả hàng / hoàn tiền",
+            "content": "## 3. Thuật ngữ\n### 3.3. Yêu cầu trả hàng / hoàn tiền\nLà yêu cầu do khách hàng khởi tạo sau khi đơn hàng đã phát sinh vấn đề như:\n\n- giao sai sản phẩm\n- thiếu hàng\n- hàng lỗi, vỡ, hư hỏng\n- hàng không đúng mô tả\n- nghi ngờ hàng giả hoặc sai thương hiệu\n- đơn đã giao nhưng khách có nhu cầu đổi ý trong phạm vi cho phép",
+            "distance": 0.6667583584785461
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.1. Phương thức giao hàng",
+            "content": "## 4. Chính sách giao hàng\n### 4.1. Phương thức giao hàng\nVinShop Demo hỗ trợ các hình thức giao hàng sau:\n\n- `standard`: giao hàng tiêu chuẩn toàn quốc\n- `fast`: giao nhanh nội thành hoặc liên tỉnh ngắn\n- `express`: giao ưu tiên cho sản phẩm đủ điều kiện\n- `scheduled`: giao theo khung giờ hẹn trước tại một số khu vực\n\nKhông phải mọi sản phẩm đều hỗ trợ tất cả phương thức giao hàng. Hệ thống sẽ chỉ hiển thị các phương thức phù hợp dựa trên:\n\n- địa chỉ nhận hàng\n- kích thước và khối lượng gói hàng\n- điều kiện đóng gói của nhà bán\n- đặc thù sản phẩm như dễ vỡ, hàng giá trị cao, hàng cồng kềnh hoặc hàng cần bảo quản đặc biệt",
+            "distance": 0.7011477947235107
+          },
+          {
+            "citation": "7. Hỗ trợ khách hàng và khiếu nại > 7.2. Thông tin cần cung cấp khi yêu cầu hỗ trợ",
+            "content": "## 7. Hỗ trợ khách hàng và khiếu nại\n### 7.2. Thông tin cần cung cấp khi yêu cầu hỗ trợ\nĐể hệ thống hoặc agent trả lời chính xác hơn, khách nên cung cấp:\n\n- mã đơn hàng\n- mã khách hàng hoặc số điện thoại đã đăng ký\n- sản phẩm cần hỗ trợ\n- nội dung vấn đề\n- ảnh hoặc video nếu có",
+            "distance": 0.7125366926193237
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "\"4.3. Thời gian giao hàng dự kiến\""
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.1. Phương thức giao hàng",
+            "content": "## 4. Chính sách giao hàng\n### 4.1. Phương thức giao hàng\nVinShop Demo hỗ trợ các hình thức giao hàng sau:\n\n- `standard`: giao hàng tiêu chuẩn toàn quốc\n- `fast`: giao nhanh nội thành hoặc liên tỉnh ngắn\n- `express`: giao ưu tiên cho sản phẩm đủ điều kiện\n- `scheduled`: giao theo khung giờ hẹn trước tại một số khu vực\n\nKhông phải mọi sản phẩm đều hỗ trợ tất cả phương thức giao hàng. Hệ thống sẽ chỉ hiển thị các phương thức phù hợp dựa trên:\n\n- địa chỉ nhận hàng\n- kích thước và khối lượng gói hàng\n- điều kiện đóng gói của nhà bán\n- đặc thù sản phẩm như dễ vỡ, hàng giá trị cao, hàng cồng kềnh hoặc hàng cần bảo quản đặc biệt",
+            "distance": 0.9231091141700745
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.3. Thời gian giao hàng dự kiến",
+            "content": "## 4. Chính sách giao hàng\n### 4.3. Thời gian giao hàng dự kiến\nThời gian giao hàng dự kiến phụ thuộc vào khu vực nhận hàng:\n\n- nội thành cùng tỉnh/thành phố lớn: 1 đến 2 ngày\n- liên tỉnh khu vực lân cận: 2 đến 4 ngày\n- tuyến huyện, xã hoặc khu vực xa: 3 đến 7 ngày\n- sản phẩm cồng kềnh hoặc hàng cần kiểm tra đặc biệt: cộng thêm 1 đến 3 ngày\n\nĐây là thời gian dự kiến. Hệ thống có thể điều chỉnh `estimated_delivery` nếu phát sinh:\n\n- thời tiết xấu\n- ùn tắc giao thông\n- người nhận không liên lạc được\n- sai hoặc thiếu thông tin địa chỉ\n- hàng phải trung chuyển nhiều chặng",
+            "distance": 0.9422485828399658
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.2. Giao hàng thành công",
+            "content": "## 3. Thuật ngữ\n### 3.2. Giao hàng thành công\nĐơn được xem là giao hàng thành công khi hệ thống vận chuyển cập nhật trạng thái `delivered` hoặc tương đương, và hàng hóa đã tới đúng địa chỉ hoặc đúng người nhận được ủy quyền.",
+            "distance": 0.965434193611145
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên",
+            "content": "## 4. Chính sách giao hàng\n### 4.4. Giao hàng nhanh và giao ưu tiên\nĐối với đơn đủ điều kiện giao nhanh hoặc giao ưu tiên:\n\n- khách cần đặt trong khung giờ hệ thống hỗ trợ\n- địa chỉ nhận phải nằm trong vùng phục vụ\n- sản phẩm không thuộc danh mục hạn chế vận chuyển\n\nCác đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu:\n\n- shop bàn giao hàng chậm\n- sản phẩm vượt ngưỡng kích thước hoặc khối lượng cho phép\n- phát sinh rủi ro vận hành từ đơn vị vận chuyển",
+            "distance": 0.9741730690002441
+          }
+        ]
+      }
+    ],
+    "output": {
+      "status": "ok",
+      "summary": "",
+      "facts": [],
+      "citations": []
+    }
+  },
+  {
+    "node": "worker_3_response",
+    "timestamp": "2026-06-09T09:11:09.977348+00:00",
+    "output": "Answer: Hiện tại, tôi chưa tìm thấy thông tin cụ thể về thời gian giao hàng tiêu chuẩn trong cơ sở chính sách của shop. Để được hỗ trợ chính xác nhất, bạn vui lòng liên hệ tổng đài chăm sóc khách hàng hoặc tham khảo thêm tại mục vận chuyển trên website.\n\nEvidence:\n- Policy: Không có thông tin trích dẫn\n- Order data: Không có dữ liệu liên quan"
+  }
+]

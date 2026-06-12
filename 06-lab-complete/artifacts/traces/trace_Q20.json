@@ -1,0 +1,92 @@
+[
+  {
+    "node": "supervisor",
+    "timestamp": "2026-06-09T09:18:52.129824+00:00",
+    "input": "Phương thức giao nhanh có thể bị chuyển sang giao tiêu chuẩn khi nào?",
+    "output": {
+      "status": "ok",
+      "needs_policy": true,
+      "needs_data": false,
+      "clarification_question": null
+    }
+  },
+  {
+    "node": "worker_1_policy",
+    "timestamp": "2026-06-09T09:19:02.226083+00:00",
+    "tool_calls": [
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "phương thức giao nhanh chuyển sang giao tiêu chuẩn"
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên",
+            "content": "## 4. Chính sách giao hàng\n### 4.4. Giao hàng nhanh và giao ưu tiên\nĐối với đơn đủ điều kiện giao nhanh hoặc giao ưu tiên:\n\n- khách cần đặt trong khung giờ hệ thống hỗ trợ\n- địa chỉ nhận phải nằm trong vùng phục vụ\n- sản phẩm không thuộc danh mục hạn chế vận chuyển\n\nCác đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu:\n\n- shop bàn giao hàng chậm\n- sản phẩm vượt ngưỡng kích thước hoặc khối lượng cho phép\n- phát sinh rủi ro vận hành từ đơn vị vận chuyển",
+            "distance": 0.7111817598342896
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.7. Giao hàng không thành công",
+            "content": "## 4. Chính sách giao hàng\n### 4.7. Giao hàng không thành công\nĐơn hàng có thể bị cập nhật `delivery_failed` khi:\n\n- người nhận không nghe máy sau nhiều lần liên hệ\n- địa chỉ giao không chính xác\n- người nhận hẹn lại nhiều lần vượt quá ngưỡng hỗ trợ\n- khách từ chối nhận hàng không có lý do phù hợp\n- khu vực giao hàng tạm thời bị hạn chế\n\nTrong trường hợp giao không thành công:\n\n- hệ thống có thể tự động lên lịch giao lại\n- hoặc chuyển hoàn về kho / shop\n- hoặc hủy đơn tùy trạng thái thanh toán và điều kiện vận hành",
+            "distance": 0.8333132266998291
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.1. Phương thức giao hàng",
+            "content": "## 4. Chính sách giao hàng\n### 4.1. Phương thức giao hàng\nVinShop Demo hỗ trợ các hình thức giao hàng sau:\n\n- `standard`: giao hàng tiêu chuẩn toàn quốc\n- `fast`: giao nhanh nội thành hoặc liên tỉnh ngắn\n- `express`: giao ưu tiên cho sản phẩm đủ điều kiện\n- `scheduled`: giao theo khung giờ hẹn trước tại một số khu vực\n\nKhông phải mọi sản phẩm đều hỗ trợ tất cả phương thức giao hàng. Hệ thống sẽ chỉ hiển thị các phương thức phù hợp dựa trên:\n\n- địa chỉ nhận hàng\n- kích thước và khối lượng gói hàng\n- điều kiện đóng gói của nhà bán\n- đặc thù sản phẩm như dễ vỡ, hàng giá trị cao, hàng cồng kềnh hoặc hàng cần bảo quản đặc biệt",
+            "distance": 0.851740837097168
+          },
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.9. Hoàn tiền",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.9. Hoàn tiền\nTiền hoàn có thể được trả về:\n\n- ví nội bộ của nền tảng\n- tài khoản ngân hàng\n- thẻ thanh toán\n- phương thức thanh toán gốc nếu hạ tầng thanh toán hỗ trợ\n\nThời gian nhận tiền thực tế có thể phụ thuộc:\n\n- cổng thanh toán\n- ngân hàng phát hành\n- trạng thái đối soát\n- việc xác minh chứng từ của bộ phận vận hành",
+            "distance": 0.870940089225769
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "giao nhanh bị chuyển sang giao tiêu chuẩn khi shop bàn giao chậm kích thước khối lượng rủi ro"
+        },
+        "output": [
+          {
+            "citation": "4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên",
+            "content": "## 4. Chính sách giao hàng\n### 4.4. Giao hàng nhanh và giao ưu tiên\nĐối với đơn đủ điều kiện giao nhanh hoặc giao ưu tiên:\n\n- khách cần đặt trong khung giờ hệ thống hỗ trợ\n- địa chỉ nhận phải nằm trong vùng phục vụ\n- sản phẩm không thuộc danh mục hạn chế vận chuyển\n\nCác đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu:\n\n- shop bàn giao hàng chậm\n- sản phẩm vượt ngưỡng kích thước hoặc khối lượng cho phép\n- phát sinh rủi ro vận hành từ đơn vị vận chuyển",
+            "distance": 0.5361409187316895
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.7. Giao hàng không thành công",
+            "content": "## 4. Chính sách giao hàng\n### 4.7. Giao hàng không thành công\nĐơn hàng có thể bị cập nhật `delivery_failed` khi:\n\n- người nhận không nghe máy sau nhiều lần liên hệ\n- địa chỉ giao không chính xác\n- người nhận hẹn lại nhiều lần vượt quá ngưỡng hỗ trợ\n- khách từ chối nhận hàng không có lý do phù hợp\n- khu vực giao hàng tạm thời bị hạn chế\n\nTrong trường hợp giao không thành công:\n\n- hệ thống có thể tự động lên lịch giao lại\n- hoặc chuyển hoàn về kho / shop\n- hoặc hủy đơn tùy trạng thái thanh toán và điều kiện vận hành",
+            "distance": 0.6927624940872192
+          },
+          {
+            "citation": "4. Chính sách giao hàng > 4.2. Thời gian xử lý đơn",
+            "content": "## 4. Chính sách giao hàng\n### 4.2. Thời gian xử lý đơn\nSau khi khách đặt hàng thành công, nhà bán hoặc kho vận hành sẽ cần một khoảng thời gian để:\n\n- xác nhận tồn kho\n- đóng gói\n- in vận đơn\n- bàn giao cho đơn vị vận chuyển\n\nThời gian xử lý thông thường:\n\n- đơn tiêu chuẩn: từ 4 đến 24 giờ làm việc\n- đơn giao nhanh: từ 1 đến 6 giờ làm việc nếu đặt trong khung giờ hỗ trợ\n- đơn có nhiều kiện hoặc nhiều shop: có thể tách thành nhiều gói và xử lý độc lập",
+            "distance": 0.748137891292572
+          },
+          {
+            "citation": "5. Chính sách đổi trả và hoàn tiền > 5.2. Các lý do được chấp nhận",
+            "content": "## 5. Chính sách đổi trả và hoàn tiền\n### 5.2. Các lý do được chấp nhận\nYêu cầu sau bán có thể được xem xét khi thuộc một hoặc nhiều lý do sau:\n\n- sản phẩm bị bể, vỡ, móp, rách hoặc hư hỏng do vận chuyển\n- sản phẩm bị lỗi kỹ thuật\n- giao sai phân loại, sai màu, sai kích cỡ hoặc sai mẫu\n- thiếu phụ kiện, thiếu quà tặng kèm, thiếu số lượng\n- sản phẩm không đúng mô tả quan trọng trên trang bán\n- nghi ngờ hàng giả, hàng nhái, sai xuất xứ\n- đơn giao trễ nghiêm trọng dẫn đến khách không còn nhu cầu nhận\n- khách đổi ý trong thời hạn cho phép của từng ngành hàng",
+            "distance": 0.788231611251831
+          }
+        ]
+      }
+    ],
+    "output": {
+      "status": "ok",
+      "summary": "Phương thức giao nhanh có thể bị chuyển sang giao tiêu chuẩn trong ba trường hợp: (1) shop bàn giao hàng chậm, (2) sản phẩm vượt ngưỡng kích thước hoặc khối lượng cho phép, (3) phát sinh rủi ro vận hành từ đơn vị vận chuyển.",
+      "facts": [
+        "Đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu shop bàn giao hàng chậm.",
+        "Đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu sản phẩm vượt ngưỡng kích thước hoặc khối lượng cho phép.",
+        "Đơn giao nhanh có thể bị chuyển sang giao tiêu chuẩn nếu phát sinh rủi ro vận hành từ đơn vị vận chuyển."
+      ],
+      "citations": [
+        "4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên"
+      ]
+    }
+  },
+  {
+    "node": "worker_3_response",
+    "timestamp": "2026-06-09T09:19:14.448324+00:00",
+    "output": "Answer: Phương thức giao nhanh có thể được chuyển sang giao tiêu chuẩn trong một số trường hợp cụ thể, bao gồm: (1) khi shop bàn giao hàng chậm hơn so với cam kết, (2) khi sản phẩm vượt quá ngưỡng kích thước hoặc khối lượng cho phép của dịch vụ giao nhanh, hoặc (3) khi có rủi ro vận hành phát sinh từ đơn vị vận chuyển. Việc chuyển đổi này giúp đảm bảo quá trình vận chuyển diễn ra thuận lợi và đúng quy định.\n\nEvidence:\n- Policy: Chính sách giao hàng quy định ba trường hợp chuyển từ giao nhanh sang giao tiêu chuẩn: shop bàn giao chậm, sản phẩm vượt ngưỡng, rủi ro vận hành (4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên).\n- Order data: Không có dữ liệu đơn hàng cụ thể liên quan đến câu hỏi này."
+  }
+]

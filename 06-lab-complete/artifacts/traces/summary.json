@@ -1,0 +1,473 @@
+{
+  "total_cases": 22,
+  "metrics": {
+    "route_accuracy": 1.0,
+    "status_accuracy": 1.0
+  },
+  "results": [
+    {
+      "id": "Q01",
+      "question": "Chính sách hoàn trả hàng ra sao?",
+      "expected": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok",
+        "final_answer": "Status: not_found\nMessage: Xin lỗi, hiện tại tôi không tìm thấy thông tin về chính sách hoàn trả hàng trong cơ sở dữ liệu. Bạn vui lòng cung cấp thêm chi tiết như mã đơn hàng hoặc loại sản phẩm để tôi hỗ trợ tốt hơn nhé!"
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q02",
+      "question": "Giao hàng tiêu chuẩn thường mất bao lâu?",
+      "expected": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Hiện tại, tôi chưa tìm thấy thông tin cụ thể về thời gian giao hàng tiêu chuẩn trong cơ sở chính sách của shop. Để được hỗ trợ chính xác nhất, bạn vui lòng liên hệ tổng đài chăm sóc khách hàng hoặc tham khảo thêm tại mục vận chuyển trên website.\n\nEvidence:\n- Policy: Không có thông tin trích dẫn\n- Order data: Không có dữ liệu liên quan"
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q03",
+      "question": "Khách có được kiểm hàng khi nhận không?",
+      "expected": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok",
+        "final_answer": "Answer:  \nChào bạn, cảm ơn bạn đã quan tâm! Khi nhận hàng, bạn hoàn toàn được phép kiểm tra ngoại quan gói hàng – tức là xem tình trạng bên ngoài thùng, hộp trước khi xác nhận nhận hàng. Shop khuyến nghị bạn nên quay video quá trình mở kiện, nhất là với sản phẩm có giá trị cao. Nếu phát hiện vỡ, móp, thiếu phụ kiện hoặc sai sản phẩm, hãy báo ngay trên ứng dụng để được hỗ trợ nhanh nhất. Tuy nhiên, việc dùng thử sâu, lắp đặt, kích hoạt hoặc sử dụng kéo dài không nằm trong phạm vi “kiểm hàng tại chỗ” bạn nhé.\n\nEvidence:\n- Policy: Khách được phép kiểm tra ngoại quan gói hàng trước khi nhận; khuyến nghị quay video mở kiện với hàng giá trị cao; báo ngay nếu có vỡ, móp, thiếu phụ kiện hoặc sai sản phẩm; dùng thử sâu, lắp đặt, kích hoạt không thuộc phạm vi kiểm hàng tại chỗ. (4. Chính sách giao hàng > 4.6. Kiểm hàng khi nhận)\n- Order data: Không có dữ liệu đơn hàng cụ thể."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q04",
+      "question": "Voucher có được hoàn lại khi hủy đơn không?",
+      "expected": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Khi bạn hủy đơn hàng, voucher đã sử dụng có thể được hoàn lại nếu đáp ứng đủ các điều kiện: voucher vẫn còn hiệu lực, chưa vượt quá giới hạn sử dụng, toàn bộ đơn hàng hoặc phần sử dụng voucher đã bị hủy, và voucher không thuộc nhóm chiến dịch bị loại trừ. Tuy nhiên, một số trường hợp thường không được hoàn lại, bao gồm: voucher số lượng giới hạn đã hết lượt, voucher livestream đã hết hiệu lực, voucher video/flash campaign hết lượt sử dụng, hoặc voucher sự kiện đặc biệt có quy định không hoàn. Để biết chính xác trường hợp của bạn, vui lòng kiểm tra điều kiện cụ thể của voucher hoặc liên hệ bộ phận hỗ trợ để được giải đáp chi tiết.\n\nEvidence:\n- Policy: Chính sách hoàn lại voucher khi đơn bị hủy (6. Chính sách voucher và khuyến mãi > 6.5. Hoàn lại voucher khi đơn bị hủy)\n- Order data: Không có thông tin đơn hàng cụ thể."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q05",
+      "question": "Các trường hợp nào thường không hỗ trợ trả hàng?",
+      "expected": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Chào bạn! Cảm ơn bạn đã quan tâm đến chính sách trả hàng của chúng tôi.  \nTheo quy định hiện tại, các trường hợp sau đây thường không được hỗ trợ trả hàng:  \n\n- Sản phẩm tiêu dùng đã mở niêm phong và không còn khả năng bán lại.  \n- Thực phẩm tươi sống hoặc hàng đông lạnh sau khi đã giao thành công.  \n- Đồ lót, sản phẩm chăm sóc cá nhân, mỹ phẩm đã qua sử dụng.  \n- Phần mềm, thẻ quà tặng điện tử, mã nạp điện tử.  \n- Hàng đặt riêng, cá nhân hóa theo yêu cầu.  \n- Sản phẩm bị hư hỏng do khách sử dụng sai hướng dẫn.  \n- Khách gửi lại sai hàng, thiếu phụ kiện hoặc không đúng serial.  \n\nTuy nhiên, những trường hợp này vẫn có thể được xem xét hỗ trợ hoàn tiền một phần hoặc xử lý ngoại lệ nếu có quyết định từ bộ phận chăm sóc khách hàng.  \nNếu bạn cần thêm thông tin chi tiết hoặc muốn kiểm tra một trường hợp cụ thể, đừng ngần ngại liên hệ với chúng tôi nhé!\n\nEvidence:\n- Policy: Các trường hợp không hỗ trợ trả hàng được quy định trong chính sách đổi trả (5. Chính sách đổi trả và hoàn tiền > 5.3. Các trường hợp không hỗ trợ trả hàng)\n- Order data: Không có dữ liệu đơn hàng liên quan."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q06",
+      "question": "Đơn hàng 1971 bao giờ được giao?",
+      "expected": {
+        "route": [
+          "data"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Đơn hàng 1971 của bạn (Nguyễn Thu Anh) hiện đang trong quá trình vận chuyển. Dự kiến sẽ được giao vào ngày **2026-06-09**. Đơn hàng đã đến trạm giao hàng cuối (Destination Delivery Station) và sẽ được chuyển phát trong ngày hôm đó qua đơn vị SPX Express (phương thức vận chuyển nhanh). Bạn vui lòng để ý điện thoại để nhận hàng nhé!\n\nEvidence:\n- Policy: Không áp dụng (câu hỏi không yêu cầu chính sách).\n- Order data: Đơn hàng 1971 (khách hàng C001 – Nguyễn Thu Anh), trạng thái in_transit, ngày giao dự kiến 2026-06-09, phương thức fast, đơn vị vận chuyển SPX Express, vị trí hiện tại: Destination Delivery Station."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q07",
+      "question": "Cho tôi xem danh sách đơn hàng của khách hàng C001",
+      "expected": {
+        "route": [
+          "data"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Dạ, đây là thông tin chi tiết về khách hàng và danh sách đơn hàng của khách hàng **Nguyễn Thu Anh** (mã C001):\n\n- **Thông tin khách hàng:** Nguyễn Thu Anh, giới tính Nữ, hạng thành viên **Gold**, tài khoản đang hoạt động.\n- **Tổng số đơn hàng:** 4 đơn, tổng chi tiêu: **4,675,941 VND**.\n- **Địa chỉ mặc định:** 128 Nguyễn Gia Trí, Bình Thạnh, Hồ Chí Minh.\n- **Số điện thoại:** 0901234567 | **Email:** nguyen.thu.anh01@example.com.\n\n**Danh sách đơn hàng gần đây:**\n1. **Đơn hàng #1971:** Giày sneaker StreetGo (1 sản phẩm) – **1,118,000 VND** – Trạng thái: **đang vận chuyển**, dự kiến giao ngày 09/06/2026.\n2. **Đơn hàng #1901:** Bình nước thể thao ActiveFlow 1L (x2) – **303,427 VND** – Trạng thái: **đã hoàn thành**, giao ngày 18/05/2026.\n3. **Đơn hàng #2160:** Mã quà tặng học trực tuyến SkillPass (x3) – **1,092,876 VND** – Trạng thái: **đang vận chuyển**.\n4. **Đơn hàng #2259:** Tai nghe Bluetooth AirBeat S5 (x2) + Áo sơ mi linen UrbanForm (x2) – **2,161,638 VND** – Trạng thái: **đã hoàn thành**, giao ngày 04/02/2026.\n\nAnh/chị cần hỗ trợ thêm thông tin gì về đơn hàng, vui lòng cho tôi biết nhé!\n\nEvidence:\n- Policy: Không có chính sách liên quan.\n- Order data: Khách hàng Nguyễn Thu Anh (C001, hạng Gold, tài khoản active) có 4 đơn hàng với tổng chi tiêu 4,675,941 VND; chi tiết từng đơn hàng (mã, sản phẩm, giá, trạng thái, ngày giao) theo dữ liệu hệ thống."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q08",
+      "question": "Voucher của khách hàng C001 còn những mã nào dùng được?",
+      "expected": {
+        "route": [
+          "data"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Chào bạn, khách hàng C001 (Nguyen Thu Anh) hiện chỉ còn **1 voucher đang hoạt động** là **C001-BDAY-0626** (Voucher sinh nhật, giảm 50,000đ cho đơn hàng từ 399,000đ, hạn sử dụng đến 30/06/2026, còn 1 lần dùng). Các voucher khác đã được sử dụng hoặc đã hết hạn. Bạn có thể dùng mã này cho đơn hàng tiếp theo nhé!\n\nEvidence:\n- Policy: Không áp dụng chính sách.\n- Order data: Khách hàng C001 (Nguyen Thu Anh, hạng Gold) chỉ còn voucher C001-BDAY-0626 đang active (giảm 50k, tối thiểu 399k, hạn 30/06/2026, còn 1 lần). Các voucher SHO-C001-01, PLA-C001-03, PLAT-FS-0626-C001 đã dùng; SHO-C001-02 đã hết hạn."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q09",
+      "question": "Khách hàng C001 thuộc hạng gì và còn quota voucher bao nhiêu?",
+      "expected": {
+        "route": [
+          "data"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Chào bạn, khách hàng C001 (Nguyen Thu Anh) hiện thuộc hạng **Gold**. Quota voucher tối đa mỗi tháng là 10, đã sử dụng 4 voucher nên số lượng còn lại trong tháng này là **6 voucher**.\n\nEvidence:\n- Policy: Không có chính sách liên quan đến câu hỏi này.\n- Order data: Khách hàng C001 (Nguyen Thu Anh) – hạng: Gold, quota tối đa: 10/tháng, đã dùng: 4, còn lại: 6 voucher."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q10",
+      "question": "Đơn hàng 2058 đang ở trạng thái nào?",
+      "expected": {
+        "route": [
+          "data"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Đơn hàng 2058 của anh/chị Võ Thanh Quân hiện đang ở trạng thái **đã giao** (delivered). Cụ thể, đơn hàng đã được giao thành công vào **lúc 17h10 ngày 01/06/2026** và thanh toán qua **thẻ tín dụng**. Hiện tại đơn hàng vẫn còn trong thời gian hỗ trợ trả hàng (hạn đến **16/06/2026**), vì vậy nếu có bất kỳ vấn đề gì với sản phẩm, anh/chị có thể yêu cầu hỗ trợ.\n\nEvidence:\n- Policy: Không có chính sách đặc biệt áp dụng cho câu hỏi trạng thái đơn hàng.\n- Order data: Đơn hàng 2058 thuộc khách hàng Võ Thanh Quân (C014); trạng thái delivered; ngày giao 01/06/2026 lúc 17:10; thanh toán credit_card; hạn trả hàng 16/06/2026."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q11",
+      "question": "Đơn hàng 1971 có được hoàn trả không?",
+      "expected": {
+        "route": [
+          "data",
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy",
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Cảm ơn bạn đã quan tâm đến chính sách hoàn trả. Với đơn hàng 1971 của mình, hiện tại đơn hàng đang ở trạng thái \"đang vận chuyển\" (in_transit) và chưa được giao thành công. Theo chính sách của chúng tôi, việc hoàn trả chỉ có thể thực hiện sau khi đơn hàng đã được giao và ở trạng thái \"đã giao\" (delivered) hoặc \"hoàn thành\" (completed). Vì vậy, hiện tại bạn chưa thể yêu cầu hoàn trả cho đơn hàng này.\n\nTuy nhiên, sản phẩm \"Giày sneaker StreetGo\" trong đơn hàng có hỗ trợ hoàn trả trong vòng 15 ngày kể từ khi bạn nhận được hàng. Sau khi nhận hàng, bạn có thể kiểm tra và nếu cần, hãy gửi yêu cầu hoàn trả trong thời hạn này. Nếu bạn có bất kỳ thắc mắc nào khác hoặc cần hỗ trợ thêm, đừng ngần ngại liên hệ với chúng tôi nhé!\n\nEvidence:\n- Policy: Chính sách đổi trả và hoàn tiền quy định chỉ đơn hàng ở trạng thái 'delivered' hoặc 'completed' mới được xử lý hoàn trả; đơn hàng đang 'in_transit' chưa thể bắt đầu quy trình trả hàng. (5. Chính sách đổi trả và hoàn tiền > 5.10. Quan hệ giữa trạng thái đơn hàng và quyền trả hàng; 5.1. Điều kiện chung để gửi yêu cầu)\n- Order data: Đơn hàng 1971 thuộc khách hàng Nguyễn Thu Anh (C001) đang ở trạng thái 'in_transit', can_return_now = false, sản phẩm P197101 có returnable = true và thời hạn 15 ngày nhưng chưa có eligible_for_return_until do chưa giao hàng."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q12",
+      "question": "Đơn hàng 2058 còn trong thời gian trả hàng không?",
+      "expected": {
+        "route": [
+          "data",
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy",
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Chào bạn, đơn hàng 2058 (khách hàng Võ Thanh Quân) vẫn còn trong thời gian trả hàng. Đơn hàng đã được giao vào ngày 01/06/2026 và thời hạn trả hàng là đến ngày 16/06/2026. Hiện tại, bạn có thể trả lại 2 sản phẩm trong đơn hàng này. Hãy thực hiện yêu cầu trả hàng trước ngày hết hạn để được hỗ trợ nhé.\n\nEvidence:\n- Policy: Chính sách trả hàng cho phép khách hàng trả trong vòng 15 ngày kể từ ngày giao hàng (thông tin suy ra từ thời hạn trả của đơn hàng, không có trích dẫn cụ thể).\n- Order data: Đơn hàng 2058, khách hàng Võ Thanh Quân (C014), trạng thái delivered (giao ngày 2026-06-01 17:10), thời hạn trả hàng 2026-06-16, can_return_now = true, số lượng sản phẩm có thể trả: 2 (mỗi sản phẩm đều có thể trả trong 15 ngày)."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q13",
+      "question": "Đơn hàng 2058 nếu khách đổi ý thì có thể trả trong bao lâu?",
+      "expected": {
+        "route": [
+          "data",
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy",
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Đơn hàng 2058 của bạn đã được giao thành công vào ngày 01/06/2026. Nếu bạn đổi ý, bạn hoàn toàn có thể trả hàng trong vòng **15 ngày** kể từ ngày nhận, tức là hạn chót trả hàng là ngày **16/06/2026**. Hiện tại đơn hàng vẫn đang trong thời gian được phép trả, bạn có thể yên tâm thực hiện nếu cần.\n\nEvidence:\n- Policy: Chính sách trả hàng cho phép khách hàng trả lại trong vòng 15 ngày kể từ ngày giao (return_window_days = 15).\n- Order data: Đơn hàng 2058 của khách hàng Võ Thanh Quân (C014) giao ngày 01/06/2026, thời hạn trả hàng đến ngày 16/06/2026. Trạng thái hiện tại: can_return_now = true."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q14",
+      "question": "Đơn hàng 1971 đang giao thì nên trả hàng hay từ chối nhận?",
+      "expected": {
+        "route": [
+          "data",
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy",
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Chào bạn, đơn hàng 1971 của bạn (Nguyễn Thu Anh) hiện đang ở trạng thái \"đang giao\" (in_transit). Vì đơn chưa được giao thành công nên quy trình trả hàng thông thường chưa thể áp dụng. Tuy nhiên, bạn có hai lựa chọn:\n\n**1. Từ chối nhận hàng ngay khi shipper gọi/giao:** Đây là cách nhanh nhất. Khi nhân viên giao hàng liên hệ, bạn chỉ cần thông báo từ chối nhận. Hệ thống sẽ ghi nhận giao không thành công và tiến hành hoàn trả về kho/shop. Vì bạn đã thanh toán 1.118.000₫ qua ví điện tử, sau khi đơn được hủy/hoàn lại, tiền sẽ được hoàn trả theo chính sách.\n\n**2. Nhận hàng, sau đó trả hàng trong vòng 15 ngày:** Nếu bạn muốn xem trước sản phẩm (Giày sneaker StreetGo), bạn hoàn toàn có thể nhận hàng. Sau đó, trong vòng 15 ngày kể từ khi nhận, bạn có thể yêu cầu đổi/trả theo chính sách (miễn là sản phẩm còn nguyên vẹn). Lúc đó quyền trả hàng mới được kích hoạt.\n\nTóm lại, nếu bạn chắc chắn không muốn giữ đơn hàng, hãy từ chối nhận khi shipper giao – vừa đơn giản vừa tránh thủ tục. Nếu còn phân vân, bạn có thể nhận hàng rồi quyết định sau trong vòng 15 ngày.\n\nEvidence:\n- Policy: Đơn hàng đang giao (in_transit) chưa thể bắt đầu quy trình trả hàng thông thường; thay vào đó, khách hàng có thể từ chối nhận hàng, dẫn đến giao không thành công và được xử lý hoàn trả. (5. Chính sách đổi trả và hoàn tiền > 5.10. Quan hệ giữa trạng thái đơn hàng và quyền trả hàng; 4. Chính sách giao hàng > 4.7. Giao hàng không thành công)\n- Order data: Đơn hàng 1971 thuộc khách hàng Nguyễn Thu Anh (C001), trạng thái in_transit, dự kiến giao ngày 09/06/2026. Sản phẩm là Giày sneaker StreetGo (1.180.000₫) có thời gian đổi trả 15 ngày sau khi nhận. Hiện tại can_return_now = false, tức chưa thể trả hàng do đơn chưa giao thành công. Phương thức thanh toán: ví điện tử, đã thanh toán 1.118.000₫."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q15",
+      "question": "Voucher của tôi còn dùng được không?",
+      "expected": {
+        "route": [],
+        "status": "clarification_needed"
+      },
+      "actual": {
+        "route": [],
+        "status": "clarification_needed",
+        "final_answer": "Status: clarification_needed\nQuestion: Vui lòng cung cấp mã khách hàng của bạn (ví dụ: C001) để tôi có thể kiểm tra thông tin voucher."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q16",
+      "question": "Đơn hàng của tôi có được hoàn trả không?",
+      "expected": {
+        "route": [],
+        "status": "clarification_needed"
+      },
+      "actual": {
+        "route": [],
+        "status": "clarification_needed",
+        "final_answer": "Status: clarification_needed\nQuestion: Vui lòng cung cấp mã đơn hàng của bạn (ví dụ: 1971) để tôi có thể kiểm tra khả năng hoàn trả."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q17",
+      "question": "Kiểm tra đơn hàng 9999 giúp tôi",
+      "expected": {
+        "route": [
+          "data"
+        ],
+        "status": "not_found"
+      },
+      "actual": {
+        "route": [
+          "data"
+        ],
+        "status": "not_found",
+        "final_answer": "Status: not_found\nMessage: Rất tiếc, đơn hàng 9999 không tồn tại trong hệ thống của chúng tôi. Bạn vui lòng kiểm tra lại mã đơn hàng nhé!"
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q18",
+      "question": "Cho tôi xem voucher của khách hàng C999",
+      "expected": {
+        "route": [
+          "data"
+        ],
+        "status": "not_found"
+      },
+      "actual": {
+        "route": [
+          "data"
+        ],
+        "status": "not_found",
+        "final_answer": "Status: not_found\nMessage: Xin lỗi, chúng tôi không tìm thấy thông tin của khách hàng C999 trong hệ thống. Vui lòng kiểm tra lại mã khách hàng hoặc liên hệ với bộ phận hỗ trợ để được giúp đỡ thêm."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q19",
+      "question": "Customer C014 có những đơn nào gần đây?",
+      "expected": {
+        "route": [
+          "data"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer:  \nBạn Võ Thanh Quân thân mến,  \n\nCảm ơn bạn đã quan tâm! Dưới đây là danh sách các đơn hàng gần đây của bạn (mã C014) trên hệ thống:  \n\n- **Đơn #2058**: Đã giao ngày 01/06/2026. Sản phẩm: Tai nghe Bluetooth AirBeat S5 và Sạc nhanh 65W NovaCharge (TechHub Official).  \n- **Đơn #2230**: Đã đóng gói, dự kiến giao 12/05/2026. Sản phẩm: Giày sneaker StreetGo (SportX Zone).  \n- **Đơn #2218**: Đã đóng gói, dự kiến giao 06/05/2026. Sản phẩm: Bộ hộp đựng thực phẩm LockFresh 10 món (Kiddo House).  \n- **Đơn #2212**: Đang vận chuyển. Sản phẩm: Serum phục hồi da DermaGlow 30ml và Mã quà tặng học trực tuyến SkillPass (đa shop).  \n- **Đơn #1914**: Hoàn thành. Sản phẩm: Bình nước thể thao ActiveFlow 1L và Hộp trái cây cắt sẵn FreshBox.  \n- **Đơn #2141**: Đã giao. Sản phẩm: Sạc nhanh 65W NovaCharge, Sổ tay học tập FocusGrid, Bộ hộp đựng thực phẩm LockFresh 10 món.  \n- **Đơn #2132**: Đang vận chuyển. Sản phẩm: 2 quyển Sổ tay học tập FocusGrid (SportX Zone).  \n\nTổng cộng bạn có **7 đơn hàng** với tổng chi tiêu **6,034,809 VND**. Nếu bạn cần hỗ trợ thêm về bất kỳ đơn hàng nào, đừng ngần ngại hỏi nhé!  \n\n**Evidence:**  \n- **Policy:** Không có chính sách liên quan.  \n- **Order data:** Khách hàng C014 (Võ Thanh Quân, nữ, hạng Standard, quận Đống Đa, Hà Nội). Tổng số đơn: 7, tổng chi tiêu: 6,034,809 VND. Các đơn gần đây gồm: 2058 (đã giao), 2230 (đã đóng gói), 2218 (đã đóng gói), 2212 (đang vận chuyển), 1914 (hoàn thành), 2141 (đã giao), 2132 (đang vận chuyển). Chi tiết sản phẩm và thời gian như đã nêu ở trên."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q20",
+      "question": "Phương thức giao nhanh có thể bị chuyển sang giao tiêu chuẩn khi nào?",
+      "expected": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Phương thức giao nhanh có thể được chuyển sang giao tiêu chuẩn trong một số trường hợp cụ thể, bao gồm: (1) khi shop bàn giao hàng chậm hơn so với cam kết, (2) khi sản phẩm vượt quá ngưỡng kích thước hoặc khối lượng cho phép của dịch vụ giao nhanh, hoặc (3) khi có rủi ro vận hành phát sinh từ đơn vị vận chuyển. Việc chuyển đổi này giúp đảm bảo quá trình vận chuyển diễn ra thuận lợi và đúng quy định.\n\nEvidence:\n- Policy: Chính sách giao hàng quy định ba trường hợp chuyển từ giao nhanh sang giao tiêu chuẩn: shop bàn giao chậm, sản phẩm vượt ngưỡng, rủi ro vận hành (4. Chính sách giao hàng > 4.4. Giao hàng nhanh và giao ưu tiên).\n- Order data: Không có dữ liệu đơn hàng cụ thể liên quan đến câu hỏi này."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q21",
+      "question": "Khách hàng C001 tối đa dùng bao nhiêu voucher mỗi tháng?",
+      "expected": {
+        "route": [
+          "data"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Chào bạn, khách hàng C001 (Nguyen Thu Anh) thuộc hạng thành viên Gold, có giới hạn tối đa 10 voucher mỗi tháng. Hiện tại trong tháng này, khách hàng đã sử dụng 4 voucher, vẫn còn 6 voucher có thể sử dụng. Thông tin này dựa trên dữ liệu khách hàng thực tế.\n\nEvidence:\n- Policy: Quy định giới hạn voucher theo hạng thành viên (Gold) – tối đa 10 voucher/tháng.\n- Order data: Khách hàng C001 – Nguyen Thu Anh, hạng Gold, giới hạn 10 voucher/tháng, đã dùng 4, còn 6."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    },
+    {
+      "id": "Q22",
+      "question": "Đơn hàng 2058 có liên quan gì đến cửa sổ trả hàng 15 ngày trong policy không?",
+      "expected": {
+        "route": [
+          "data",
+          "policy"
+        ],
+        "status": "ok"
+      },
+      "actual": {
+        "route": [
+          "policy",
+          "data"
+        ],
+        "status": "ok",
+        "final_answer": "Answer: Đơn hàng 2058 của bạn hiện đang được áp dụng chính sách cửa sổ trả hàng 15 ngày. Cả hai sản phẩm trong đơn (tai nghe Bluetooth AirBeat S5 và sạc nhanh 65W NovaCharge) đều có thời hạn trả là 15 ngày kể từ ngày giao hàng thành công (01/06/2026). Hạn chót đổi trả là ngày 16/06/2026 và hiện tại đơn hàng vẫn còn hiệu lực trả hàng. Như vậy, chính sách 15 ngày có liên quan trực tiếp đến đơn hàng của bạn và bạn vẫn còn thời gian để thực hiện yêu cầu nếu cần.\n\nEvidence:\n- Policy: Chính sách quy định thời hạn trả hàng mặc định là tối đa 15 ngày kể từ khi đơn cập nhật giao hàng thành công (mục 5.1. Điều kiện chung để gửi yêu cầu đổi trả).\n- Order data: Đơn hàng 2058 có `return_window_days = 15` cho mỗi sản phẩm, `eligible_for_return_until = 2026-06-16`, và trạng thái `can_return_now = true`. Đơn đã giao thành công ngày 2026-06-01."
+      },
+      "evaluation": {
+        "route_correct": true,
+        "status_correct": true
+      }
+    }
+  ]
+}

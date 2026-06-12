@@ -1,0 +1,1 @@
+invalid type: string "## 7. Hỗ trợ khách hàng và khiếu nại\n### 7.3. Các tình huống cần hỏi làm rõ\nResponse Agent nên ưu tiên hỏi lại khi thiếu các thông tin sau:\n\n- chưa có `order_id`\n- chưa có `customer_id`\n- khách hỏi chung chung về voucher nhưng không nêu tài khoản\nần hỗ trợ\n- nội dung vấn đề\n- ảnh hoặc video nếu có"���

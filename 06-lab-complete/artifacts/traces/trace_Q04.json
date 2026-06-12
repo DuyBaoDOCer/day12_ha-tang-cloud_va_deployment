@@ -1,0 +1,121 @@
+[
+  {
+    "node": "supervisor",
+    "timestamp": "2026-06-09T09:11:33.631741+00:00",
+    "input": "Voucher có được hoàn lại khi hủy đơn không?",
+    "output": {
+      "status": "ok",
+      "needs_policy": true,
+      "needs_data": false,
+      "clarification_question": null
+    }
+  },
+  {
+    "node": "worker_1_policy",
+    "timestamp": "2026-06-09T09:11:46.032163+00:00",
+    "tool_calls": [
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "voucher hoàn lại khi hủy đơn"
+        },
+        "output": [
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.6. Voucher sau trả hàng / hoàn tiền",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.6. Voucher sau trả hàng / hoàn tiền\nNếu yêu cầu trả hàng / hoàn tiền được chấp nhận:\n\n- voucher đã dùng có thể được hoàn lại, cấp lại, hoặc không hoàn lại tùy điều kiện chiến dịch\n- mã bù có thể được cấp riêng thay vì hoàn đúng voucher cũ\n- một số voucher chỉ được hoàn khi hoàn tiền toàn phần",
+            "distance": 0.4268379807472229
+          },
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.5. Hoàn lại voucher khi đơn bị hủy",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.5. Hoàn lại voucher khi đơn bị hủy\nKhi đơn hàng bị hủy, voucher có thể được hoàn lại nếu thỏa các điều kiện sau:\n\n- voucher còn hiệu lực\n- voucher chưa vượt giới hạn sử dụng\n- toàn bộ đơn hoặc toàn bộ phần sử dụng chung voucher đã bị hủy\n- voucher không thuộc nhóm chiến dịch bị loại trừ\n\nCác trường hợp thường **không** được hoàn lại:\n\n- voucher số lượng giới hạn đã hết lượt\n- voucher livestream đã hết hiệu lực\n- voucher video / flash campaign hết lượt sử dụng\n- voucher phát hành cho sự kiện đặc biệt và có quy định không hoàn",
+            "distance": 0.451274573802948
+          },
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.3. Quy tắc cộng dồn voucher",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.3. Quy tắc cộng dồn voucher\nTrong mock policy này, một đơn hàng có thể dùng tối đa:\n\n- 01 voucher nền tảng\n- 01 voucher shop\n- 01 voucher vận chuyển\n\nKhông phải mọi tổ hợp đều hợp lệ. Hệ thống sẽ tự tính theo quy tắc:\n\n1. áp dụng ưu đãi của shop trước\n2. áp dụng voucher nền tảng tiếp theo\n3. cuối cùng mới tính ưu đãi vận chuyển",
+            "distance": 0.5501183271408081
+          },
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.4. Giới hạn voucher theo hạng khách hàng",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.4. Giới hạn voucher theo hạng khách hàng\nĐể tạo dữ liệu đủ thực tế cho lab, nền tảng giả lập áp dụng hạn mức voucher mỗi tháng theo hạng thành viên:\n\n| Hạng khách hàng | Số voucher tối đa / tháng |\n| --- | ---: |\n| Standard | 6 |\n| Silver | 8 |\n| Gold | 10 |\n| Platinum | 12 |\n| VIP | 15 |\n\nTrong dữ liệu khách hàng, trường `max_voucher_per_month` sẽ phản ánh hạn mức này.",
+            "distance": 0.5597161054611206
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "hủy đơn hoàn voucher điều kiện"
+        },
+        "output": [
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.6. Voucher sau trả hàng / hoàn tiền",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.6. Voucher sau trả hàng / hoàn tiền\nNếu yêu cầu trả hàng / hoàn tiền được chấp nhận:\n\n- voucher đã dùng có thể được hoàn lại, cấp lại, hoặc không hoàn lại tùy điều kiện chiến dịch\n- mã bù có thể được cấp riêng thay vì hoàn đúng voucher cũ\n- một số voucher chỉ được hoàn khi hoàn tiền toàn phần",
+            "distance": 0.5783061981201172
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.4. Voucher nền tảng",
+            "content": "## 3. Thuật ngữ\n### 3.4. Voucher nền tảng\nVoucher nền tảng là ưu đãi do VinShop Demo hoặc đối tác tài trợ, áp dụng theo điều kiện từng chiến dịch.",
+            "distance": 0.6186243295669556
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.6. Voucher vận chuyển",
+            "content": "## 3. Thuật ngữ\n### 3.6. Voucher vận chuyển\nVoucher vận chuyển là mã giảm phí giao hàng, có thể áp dụng độc lập hoặc kết hợp với các loại voucher khác tùy điều kiện chương trình.",
+            "distance": 0.6240712404251099
+          },
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.3. Quy tắc cộng dồn voucher",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.3. Quy tắc cộng dồn voucher\nTrong mock policy này, một đơn hàng có thể dùng tối đa:\n\n- 01 voucher nền tảng\n- 01 voucher shop\n- 01 voucher vận chuyển\n\nKhông phải mọi tổ hợp đều hợp lệ. Hệ thống sẽ tự tính theo quy tắc:\n\n1. áp dụng ưu đãi của shop trước\n2. áp dụng voucher nền tảng tiếp theo\n3. cuối cùng mới tính ưu đãi vận chuyển",
+            "distance": 0.6246150732040405
+          }
+        ]
+      },
+      {
+        "tool": "search_policy",
+        "args": {
+          "query": "điều kiện hoàn voucher khi hủy đơn"
+        },
+        "output": [
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.6. Voucher sau trả hàng / hoàn tiền",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.6. Voucher sau trả hàng / hoàn tiền\nNếu yêu cầu trả hàng / hoàn tiền được chấp nhận:\n\n- voucher đã dùng có thể được hoàn lại, cấp lại, hoặc không hoàn lại tùy điều kiện chiến dịch\n- mã bù có thể được cấp riêng thay vì hoàn đúng voucher cũ\n- một số voucher chỉ được hoàn khi hoàn tiền toàn phần",
+            "distance": 0.5198315978050232
+          },
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.5. Hoàn lại voucher khi đơn bị hủy",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.5. Hoàn lại voucher khi đơn bị hủy\nKhi đơn hàng bị hủy, voucher có thể được hoàn lại nếu thỏa các điều kiện sau:\n\n- voucher còn hiệu lực\n- voucher chưa vượt giới hạn sử dụng\n- toàn bộ đơn hoặc toàn bộ phần sử dụng chung voucher đã bị hủy\n- voucher không thuộc nhóm chiến dịch bị loại trừ\n\nCác trường hợp thường **không** được hoàn lại:\n\n- voucher số lượng giới hạn đã hết lượt\n- voucher livestream đã hết hiệu lực\n- voucher video / flash campaign hết lượt sử dụng\n- voucher phát hành cho sự kiện đặc biệt và có quy định không hoàn",
+            "distance": 0.5902746915817261
+          },
+          {
+            "citation": "6. Chính sách voucher và khuyến mãi > 6.3. Quy tắc cộng dồn voucher",
+            "content": "## 6. Chính sách voucher và khuyến mãi\n### 6.3. Quy tắc cộng dồn voucher\nTrong mock policy này, một đơn hàng có thể dùng tối đa:\n\n- 01 voucher nền tảng\n- 01 voucher shop\n- 01 voucher vận chuyển\n\nKhông phải mọi tổ hợp đều hợp lệ. Hệ thống sẽ tự tính theo quy tắc:\n\n1. áp dụng ưu đãi của shop trước\n2. áp dụng voucher nền tảng tiếp theo\n3. cuối cùng mới tính ưu đãi vận chuyển",
+            "distance": 0.6003835201263428
+          },
+          {
+            "citation": "3. Thuật ngữ > 3.4. Voucher nền tảng",
+            "content": "## 3. Thuật ngữ\n### 3.4. Voucher nền tảng\nVoucher nền tảng là ưu đãi do VinShop Demo hoặc đối tác tài trợ, áp dụng theo điều kiện từng chiến dịch.",
+            "distance": 0.6030354499816895
+          }
+        ]
+      }
+    ],
+    "output": {
+      "status": "ok",
+      "summary": "Khi đơn hàng bị hủy, voucher có thể được hoàn lại nếu đáp ứng đủ các điều kiện: voucher còn hiệu lực, chưa vượt giới hạn sử dụng, toàn bộ đơn hoặc phần sử dụng voucher đã bị hủy, và voucher không thuộc nhóm chiến dịch bị loại trừ. Một số trường hợp không được hoàn lại như voucher số lượng giới hạn đã hết lượt, voucher livestream đã hết hiệu lực, voucher video/flash campaign hết lượt sử dụng, hoặc voucher sự kiện đặc biệt có quy định không hoàn.",
+      "facts": [
+        "Voucher có thể được hoàn lại khi đơn hàng bị hủy nếu thỏa các điều kiện: còn hiệu lực, chưa vượt giới hạn sử dụng, toàn bộ đơn hoặc phần sử dụng chung voucher đã bị hủy, không thuộc nhóm chiến dịch bị loại trừ.",
+        "Các trường hợp thường không được hoàn lại voucher: voucher số lượng giới hạn đã hết lượt, voucher livestream đã hết hiệu lực, voucher video / flash campaign hết lượt sử dụng, voucher sự kiện đặc biệt có quy định không hoàn.",
+        "Khi trả hàng/hoàn tiền, voucher đã dùng có thể được hoàn lại, cấp lại, hoặc không hoàn lại tùy điều kiện chiến dịch; mã bù có thể được cấp riêng; một số voucher chỉ hoàn khi hoàn tiền toàn phần."
+      ],
+      "citations": [
+        "6. Chính sách voucher và khuyến mãi > 6.5. Hoàn lại voucher khi đơn bị hủy",
+        "6. Chính sách voucher và khuyến mãi > 6.6. Voucher sau trả hàng / hoàn tiền"
+      ]
+    }
+  },
+  {
+    "node": "worker_3_response",
+    "timestamp": "2026-06-09T09:12:06.183523+00:00",
+    "output": "Answer: Khi bạn hủy đơn hàng, voucher đã sử dụng có thể được hoàn lại nếu đáp ứng đủ các điều kiện: voucher vẫn còn hiệu lực, chưa vượt quá giới hạn sử dụng, toàn bộ đơn hàng hoặc phần sử dụng voucher đã bị hủy, và voucher không thuộc nhóm chiến dịch bị loại trừ. Tuy nhiên, một số trường hợp thường không được hoàn lại, bao gồm: voucher số lượng giới hạn đã hết lượt, voucher livestream đã hết hiệu lực, voucher video/flash campaign hết lượt sử dụng, hoặc voucher sự kiện đặc biệt có quy định không hoàn. Để biết chính xác trường hợp của bạn, vui lòng kiểm tra điều kiện cụ thể của voucher hoặc liên hệ bộ phận hỗ trợ để được giải đáp chi tiết.\n\nEvidence:\n- Policy: Chính sách hoàn lại voucher khi đơn bị hủy (6. Chính sách voucher và khuyến mãi > 6.5. Hoàn lại voucher khi đơn bị hủy)\n- Order data: Không có thông tin đơn hàng cụ thể."
+  }
+]
