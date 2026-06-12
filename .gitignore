@@ -5,7 +5,7 @@
 .env.*
 !.env.example
 
-# ── Python ──────────────────────────��────────────────────
+# ── Python ───────────────────────────────────────────────
 __pycache__/
 *.pyc
 *.pyo
@@ -21,7 +21,7 @@ venv/
 env/
 .venv/
 
-# ── IDE ──────────────────────────────��────────────────────
+# ── IDE ───────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
@@ -34,6 +34,9 @@ Thumbs.db
 # ── Docker volumes (local dev) ────────────────────────────
 data/
 volumes/
+# Exception: 06-lab-complete/data/ must be tracked (Railway Docker build needs it)
+!06-lab-complete/data/
+!06-lab-complete/data/**
 
 # ── User Request Ignored Files ────────────────────────────
 commands_history.md
