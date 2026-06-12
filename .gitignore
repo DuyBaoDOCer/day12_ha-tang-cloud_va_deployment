@@ -31,6 +31,9 @@ env/
 .DS_Store
 Thumbs.db
 
-# ── Docker volumes (local dev) ─────────────────────��──────
+# ── Docker volumes (local dev) ────────────────────────────
 data/
 volumes/
+
+# ── User Request Ignored Files ────────────────────────────
+commands_history.md
