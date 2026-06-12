@@ -14,6 +14,7 @@ import os
 import time
 import logging
 import json
+import traceback
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
@@ -55,41 +56,46 @@ logger = logging.getLogger(__name__)
 START_TIME   = time.time()
 _is_ready    = False
 _assistant   = None   # type: ignore  # ShoppingAssistant instance
+_init_error  = None   # type: ignore  # str if init failed
 _req_count   = 0
 _err_count   = 0
 
 # ─────────────────────────────────────────────────────────
-# Lifespan: initialise ShoppingAssistant in background thread
-# so uvicorn can answer /health immediately (non-blocking)
+# Lazy init — runs in thread pool, never blocks event loop
 # ─────────────────────────────────────────────────────────
 def _init_assistant_sync():
     """Blocking init — runs in thread pool, not on event loop."""
-    from app.graph import ShoppingAssistant  # noqa: PLC0415
-    return ShoppingAssistant()
+    global _assistant, _init_error
+    try:
+        logger.info(json.dumps({"event": "assistant_init_start"}))
+        from app.graph import ShoppingAssistant
+        _assistant = ShoppingAssistant()
+        logger.info(json.dumps({"event": "assistant_init_done"}))
+    except Exception as exc:
+        _init_error = traceback.format_exc()
+        logger.error(json.dumps({"event": "assistant_init_error", "error": str(exc), "traceback": _init_error}))
 
 
+# ─────────────────────────────────────────────────────────
+# Lifespan
+# ─────────────────────────────────────────────────────────
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    global _is_ready, _assistant
+    global _is_ready
     logger.info(json.dumps({"event": "startup", "app": APP_NAME, "version": APP_VERSION}))
 
-    # Mark ready immediately so Railway health-check passes
-    # while the heavy model download runs in the background
+    # Mark ready IMMEDIATELY so Railway /health returns 200
     _is_ready = True
-    logger.info(json.dumps({"event": "ready", "note": "assistant loading in background"}))
+    logger.info(json.dumps({"event": "health_ready"}))
 
+    # Init assistant in background thread (non-blocking)
     loop = asyncio.get_event_loop()
-    try:
-        # run_in_executor: non-blocking — event loop stays free for /health
-        _assistant = await loop.run_in_executor(None, _init_assistant_sync)
-        logger.info(json.dumps({"event": "assistant_ready"}))
-    except Exception as exc:
-        logger.error(json.dumps({"event": "startup_error", "error": str(exc)}))
-        _assistant = None
+    loop.run_in_executor(None, _init_assistant_sync)
 
     yield
     _is_ready = False
     logger.info(json.dumps({"event": "shutdown"}))
+
 
 # ─────────────────────────────────────────────────────────
 # App
@@ -98,7 +104,7 @@ app = FastAPI(
     title=APP_NAME,
     version=APP_VERSION,
     lifespan=lifespan,
-    docs_url="/docs" if ENVIRONMENT != "production" else None,
+    docs_url="/docs",
     redoc_url=None,
 )
 
@@ -114,19 +120,22 @@ async def metrics_middleware(request: Request, call_next):
     global _req_count, _err_count
     start = time.time()
     _req_count += 1
-    response: Response = await call_next(request)
-    # Security headers
-    response.headers["X-Content-Type-Options"] = "nosniff"
-    response.headers["X-Frame-Options"] = "DENY"
-    duration_ms = round((time.time() - start) * 1000, 1)
-    logger.info(json.dumps({
-        "event": "request",
-        "method": request.method,
-        "path": request.url.path,
-        "status": response.status_code,
-        "ms": duration_ms,
-    }))
-    return response
+    try:
+        response: Response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        duration_ms = round((time.time() - start) * 1000, 1)
+        logger.info(json.dumps({
+            "event": "request",
+            "method": request.method,
+            "path": request.url.path,
+            "status": response.status_code,
+            "ms": duration_ms,
+        }))
+        return response
+    except Exception:
+        _err_count += 1
+        raise
 
 # ─────────────────────────────────────────────────────────
 # Auth
@@ -147,7 +156,7 @@ def verify_api_key(api_key: str = Security(api_key_header)) -> str:
 class AskRequest(BaseModel):
     question: str = Field(..., min_length=1, max_length=2000,
                           description="Câu hỏi gửi cho Shopping Assistant")
-    rebuild_index: bool = Field(False, description="Rebuild ChromaDB index (dùng khi thêm policy mới)")
+    rebuild_index: bool = Field(False, description="Rebuild ChromaDB index")
 
 class AskResponse(BaseModel):
     question: str
@@ -168,14 +177,14 @@ def root():
             "ask":   "POST /ask  (requires X-API-Key)",
             "health": "GET /health",
             "ready":  "GET /ready",
-            "docs":   "GET /docs (non-production only)",
+            "docs":   "GET /docs",
         },
     }
 
 
 @app.get("/health", tags=["Operations"])
 def health():
-    """Liveness probe — Railway/Kubernetes restart container if this fails."""
+    """Liveness probe — Railway uses this to check if the container is alive."""
     return {
         "status": "ok",
         "version": APP_VERSION,
@@ -183,15 +192,17 @@ def health():
         "uptime_seconds": round(time.time() - START_TIME, 1),
         "total_requests": _req_count,
         "assistant_loaded": _assistant is not None,
+        "init_error": _init_error[:200] if _init_error else None,
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
 
 
 @app.get("/ready", tags=["Operations"])
 def ready():
-    """Readiness probe — load balancer stops routing here if not ready."""
-    if not _is_ready or _assistant is None:
-        raise HTTPException(503, "Not ready — assistant not initialised")
+    """Readiness probe — returns 503 if assistant not yet loaded."""
+    if _assistant is None:
+        detail = _init_error[:500] if _init_error else "Assistant still loading..."
+        raise HTTPException(503, detail)
     return {"ready": True}
 
 
@@ -202,16 +213,11 @@ async def ask_agent(
 ):
     """
     Send a question to the Multi-Agent Shopping Assistant.
-
-    **Authentication:** Include header `X-API-Key: <your-key>`
-
-    The agent routes between:
-    - **Policy worker** — shipping fees, return policy, voucher conditions
-    - **Data worker**   — order status, customer information
-    - **Response worker** — synthesizes final answer
+    Authentication: Include header X-API-Key: <your-key>
     """
     if _assistant is None:
-        raise HTTPException(503, "Assistant not ready. Try again shortly.")
+        detail = _init_error[:500] if _init_error else "Assistant still loading. Try again shortly."
+        raise HTTPException(503, detail)
 
     logger.info(json.dumps({"event": "ask", "q_len": len(body.question)}))
 
