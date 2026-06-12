@@ -9,6 +9,7 @@ Endpoints:
 """
 from __future__ import annotations
 
+import asyncio
 import os
 import time
 import logging
@@ -58,22 +59,34 @@ _req_count   = 0
 _err_count   = 0
 
 # ─────────────────────────────────────────────────────────
-# Lifespan: initialise ShoppingAssistant once at startup
+# Lifespan: initialise ShoppingAssistant in background thread
+# so uvicorn can answer /health immediately (non-blocking)
 # ─────────────────────────────────────────────────────────
+def _init_assistant_sync():
+    """Blocking init — runs in thread pool, not on event loop."""
+    from app.graph import ShoppingAssistant  # noqa: PLC0415
+    return ShoppingAssistant()
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global _is_ready, _assistant
     logger.info(json.dumps({"event": "startup", "app": APP_NAME, "version": APP_VERSION}))
+
+    # Mark ready immediately so Railway health-check passes
+    # while the heavy model download runs in the background
+    _is_ready = True
+    logger.info(json.dumps({"event": "ready", "note": "assistant loading in background"}))
+
+    loop = asyncio.get_event_loop()
     try:
-        from app.graph import ShoppingAssistant  # noqa: PLC0415
-        _assistant = ShoppingAssistant()
+        # run_in_executor: non-blocking — event loop stays free for /health
+        _assistant = await loop.run_in_executor(None, _init_assistant_sync)
         logger.info(json.dumps({"event": "assistant_ready"}))
     except Exception as exc:
         logger.error(json.dumps({"event": "startup_error", "error": str(exc)}))
-        # Keep running so /health returns 200 but /ready will return 503
         _assistant = None
-    _is_ready = True
-    logger.info(json.dumps({"event": "ready"}))
+
     yield
     _is_ready = False
     logger.info(json.dumps({"event": "shutdown"}))
