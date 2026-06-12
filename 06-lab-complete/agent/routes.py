@@ -15,6 +15,9 @@ def create_app(embeddings, rag_chain) -> Flask:
     # static_folder trỏ tới thư mục gốc /app (chứa index.html, css/, images/)
     static_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     app = Flask(__name__, static_folder=static_dir, static_url_path='')
+    
+    # Không encode unicode characters sang ASCII (để hiển thị rõ tiếng Việt khi curl/JSON)
+    app.json.ensure_ascii = False
 
     @app.route('/')
     def index():
